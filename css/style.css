@@ -1,0 +1,117 @@
+/**!:UTILITIES*/
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --green: #68D9A4;
+  --orange: #ED6454;
+  --blue: #3282F7;
+  --upCard: #C7BEBE;
+  --downCard: #E7E7E7;
+}
+/**!: END Utility
+/********************************/
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 6.5rem;
+}
+
+/******************************/
+.buildCard {
+  display: grid;
+  grid-template-columns: repeat(3, 380px);
+  grid-template-rows: repeat(2, 360px);
+  gap: 0.9rem;
+  grid-template-areas:
+    ". . ."
+    ". . .";
+  border-radius: 5px;
+  background: #C7BEBE;
+}
+
+/**!SECTION Partie recherche Loupe*/
+
+#search {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: 4.3rem;
+  width: 77.5rem;
+  border-radius: 5px;
+  background: #E7E7E7;
+  margin-top: 1rem;
+}
+
+.glass {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 8.5rem;
+  right: 7rem;
+  z-index: 5;
+  width: 32px;
+}
+
+#search.input {
+  background: var(--upCard);
+  width: 11.5rem;
+  height: 1.38rem;
+
+}
+
+input[type="text"] {
+  background-color: var(--downCard);
+  border: none;
+  margin-left: 1.5rem;
+  font-weight: 100;
+}
+
+/**note:  Navigation des tris
+*/
+
+#button {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  width: 77.5rem;
+
+  gap: 20px;
+  border-radius: 3px;
+  border: none;
+}
+
+/*? button Ingredients*/
+
+#dropdownButtonBlue {
+  background-color: var(--blue);
+  width: 10.6rem;
+  height: 4.3rem;
+  color: white;
+}
+
+/*? button appareil*/
+
+#dropdownButtonGreen {
+  background-color: var(--green);
+  width: 10.6rem;
+  height: 4.3rem;
+  color: white;
+}
+
+/*? button. Ustensils*/
+
+#dropdownButtonOrange {
+  background-color: var(--orange);
+  width: 10.6rem;
+  height: 4.3rem;
+  color: white;
+}

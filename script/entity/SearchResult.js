@@ -5,6 +5,12 @@ class SearchResult {
     this.ustensils = new Set();
     this.appliances = new Set();
    
+   /**
+   *?: retourne sous forme de tableau les recipes par
+   *! par ingredients
+   *! par appareils
+   *! par ustensils
+   */
     Array.from(recipesFiltered).map((recipe) => {
       Array.from(recipe.ingredients).map((ingredient) => {
         this.ingredients.add(ingredient);
