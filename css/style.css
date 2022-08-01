@@ -1,4 +1,4 @@
-/**!:UTILITIES*/
+/**? UTILITIES*/
 
 body {
   font-family: 'Lato', sans-serif;
@@ -11,10 +11,14 @@ body {
   --blue: #3282F7;
   --upCard: #C7BEBE;
   --downCard: #E7E7E7;
+  box-sizing: border-box;
+  font: 1.2rem;
 }
-/**!: END Utility
-/********************************/
+p{
+  margin: inherit;
+}
 
+/**? ***********   entetes ***********/
 .logo {
   display: block;
   margin-left: auto;
@@ -22,21 +26,97 @@ body {
   height: 6.5rem;
 }
 
-/******************************/
-.buildCard {
-  display: grid;
-  grid-template-columns: repeat(3, 380px);
-  grid-template-rows: repeat(2, 360px);
-  gap: 0.9rem;
-  grid-template-areas:
-    ". . ."
-    ". . .";
-  border-radius: 5px;
-  background: #C7BEBE;
+/**? GALLERY RECIPES ******************/
+
+#recipesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  height: 4.3rem;
+  width: 77.5rem;
 }
 
-/**!SECTION Partie recherche Loupe*/
+.card-body {
+  flex-direction: row;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin-top: 1rem;
+  width: 23.5rem;
+  height: 22.5rem;
+  margin: 1rem 1rem 1rem 0rem;
+  background-color: var(--downCard);
+}
+/**!   image de la recette *****/
+.media-recipe {
+  width:380px;
+  height:178px;
+  object-fit: cover;
+  object-position: 60% 15%; 
+}
+/**!  titre  info  title  ********/
+.card-info {
+  font-size: 1.375rem;
+  margin-top:1rem;
+  display: flex;
+  justify-content: space-between;
+}
 
+span{
+  display: flex;
+  flex-direction: row;
+}
+
+i.far-light{
+  width:20px;
+  height: 20px;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/**!    ingredients description   ****/
+figcaption.detail {
+  font-size: 12px;
+  margin: 0.5rem 0.5rem;
+  padding: 0px;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.card-ingred{
+  display: block;
+  font-size: 12px;
+  font-family: 'lato';
+  font-weight: 700;
+  width: 100%;
+  margin-right: 5px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.card-desc{
+  width: 100%;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+
+}
+.card-body:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+} 
+
+
+/**?SECTION Partie recherche Loupe*/
 #search {
   display: flex;
   margin-left: auto;
@@ -51,9 +131,9 @@ body {
 .glass {
   width: 32px;
   height: 32px;
-  position: absolute;
-  top: 8.5rem;
-  right: 7rem;
+  position: relative;
+  top: 1.4rem;
+  right: -60rem;
   z-index: 5;
   width: 32px;
 }
@@ -62,7 +142,6 @@ body {
   background: var(--upCard);
   width: 11.5rem;
   height: 1.38rem;
-
 }
 
 input[type="text"] {
@@ -72,8 +151,6 @@ input[type="text"] {
   font-weight: 100;
 }
 
-/**note:  Navigation des tris
-*/
 
 #button {
   display: flex;

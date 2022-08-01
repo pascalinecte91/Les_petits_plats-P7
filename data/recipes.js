@@ -1,5 +1,5 @@
-export { recipes };
-const recipes = [
+
+export const recipes = [
   {
     id: 1,
     name: "Limonade de Coco",

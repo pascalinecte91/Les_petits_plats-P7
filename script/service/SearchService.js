@@ -10,12 +10,12 @@ class SearchService {
     this.recipesFiltered.add([...this.recipes][0]);
     this.recipesFiltered.add([...this.recipes][1]);
     this.recipesFiltered.add([...this.recipes][7]);
-/**
-*note: 
-*@hight   en cours */
+    this.recipesFiltered.add([...this.recipes][13]);
+    this.recipesFiltered.add([...this.recipes][9]);
+    this.recipesFiltered.add([...this.recipes][22]);
 
-    // let searchResult = new SearchResult(this.recipesFiltered);
-   
+    let searchResult = new SearchResult(this.recipesFiltered);
+
     return searchResult;
   }
 }
