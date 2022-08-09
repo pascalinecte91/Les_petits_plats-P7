@@ -1,8 +1,9 @@
 class RecipeDto {
 	constructor(recipeData) {
-	
-		//this.recipeData = recipeData;
+	console.log(recipeData.ustensils);
+		this.recipeData = recipeData;
 		//const card = ([name, servings, time, description, appliance ]) 
+		//! toutes  les recipes = recipeData
 		//console.log(recipeData);
 		this.name = recipeData.name;
 		this.servings = recipeData.servings;

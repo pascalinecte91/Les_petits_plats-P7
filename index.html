@@ -8,12 +8,14 @@
 	<title>Les petits plats - Page d'accueil</title>
 	<!-- Bootstrap CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap"
 		rel="stylesheet">
-		<script src="https://kit.fontawesome.com/0bfe0e9acc.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/0bfe0e9acc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -25,46 +27,47 @@
 
 	<main>
 
-<!--    SEARCH  RECIPES   -->
+		<!--    SEARCH  RECIPES   -->
 		<section id="search">
 			<input type="text" placeholder="Rechercher une recette">
 			<img src="assets/loupe.png" class="glass" alt="loupe">
 		</section>
-<!--      END SEARCH      -->
+		<!--      END SEARCH      -->
 
-<!--    NAVIGATION SORT  BUTTON   -->
-<section id="button">
+		<!--    NAVIGATION SORT  BUTTON   -->
+		<section id="buttons">
+			<!----------------------------    INGREDIENTS   ------------------------------------------>
+			
+				<div id="ingredientList">
+				</div>
+		
+			<!----------------------------    APPLIANCE     ------------------------------------------>
+			<div class="dropdown_appliance">
+				<button class="btn dropdown-toggle" type="button" id="dropdownButtonGreen" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">Appareils
 
- <div class="dropdown_ingredients">
-		<button class="btn dropdown-toggle" type="button" id="dropdownButtonBlue" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingrédients
-		</button>
-		<div class="dropdown-menu" aria-labelledby="dropdownButton"></div>
-</div>
-<!----------------------------    INGREDIENTS   ------------------------------------------>
-	<div class="dropdown_appliance">
-		<button class="btn dropdown-toggle" type="button" id="dropdownButtonGreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Appareils
-		</button>
-		<div class="dropdown-menu" aria-labelledby="dropdownButton"></div>
-	</div>
-<!----------------------------    APPLIANCE     ------------------------------------------>
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownButton"></div>
+			</div>
 
-	<div class="dropdown_ustensils">
-		<button class="btn dropdown-toggle" type="button" id="dropdownButtonOrange" data-toggle="dropdown"
-			aria-haspopup="true" aria-expanded="false">Ustensils
-		</button>
-		<div class="dropdown-menu" aria-labelledby="dropdownButton"></div>
-	</div>
-	</section>
-<!---------------------------     USTENSILS    ------------------------------------------->
+			<!---------------------------     USTENSILS    ------------------------------------------->
+			<div class="dropdown_ustensils">
+				<button class="btn dropdown-toggle" type="button" id="dropdownButtonOrange" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">Ustensils
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownButton"></div>
+			</div>
+		</section>
+
+		<section id="recipesContainer"></section>
 
 
-	 <section id="recipesContainer"></section> 
-	
-	
-	<script type="module" src="./app.js"></script>
-	<script type="module" src="./script/builder/BuildCardRecipe.js"></script>
+		<script type="module" src="./app.js"></script>
+		<script type="module" src="./script/builder/CardRecipeBuilder.js"></script>
 
 	</main>
 </body>
+
+
 
 </html>

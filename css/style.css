@@ -36,7 +36,7 @@ p{
   margin-right: auto;
   flex-wrap: wrap;
   height: 4.3rem;
-  width: 77.5rem;
+  width: 78.5rem;
 }
 
 .card-body {
@@ -46,7 +46,7 @@ p{
   margin-top: 1rem;
   width: 23.5rem;
   height: 22.5rem;
-  margin: 1rem 1rem 1rem 0rem;
+  margin: 1rem 1rem 1rem 1rem;
   background-color: var(--downCard);
 }
 /**!   image de la recette *****/
@@ -67,6 +67,7 @@ p{
 span{
   display: flex;
   flex-direction: row;
+  
 }
 
 i.far-light{
@@ -79,6 +80,10 @@ i.far-light{
   font-weight: 700;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  
 }
 
 /**!    ingredients description   ****/
@@ -88,24 +93,26 @@ figcaption.detail {
   padding: 0px;
   display: flex;
   margin-bottom: 1rem;
+  
 }
 
 .card-ingred{
-  display: block;
   font-size: 12px;
   font-family: 'lato';
-  font-weight: 700;
   width: 100%;
-  margin-right: 5px;
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
+  margin-right: 5px;
+  
+
 }
 
 .card-desc{
   width: 100%;
   display: -webkit-box;
+  text-overflow: ellipsis;
   overflow: hidden;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
@@ -122,7 +129,7 @@ figcaption.detail {
   margin-left: auto;
   margin-right: auto;
   height: 4.3rem;
-  width: 77.5rem;
+  width: 76.5rem;
   border-radius: 5px;
   background: #E7E7E7;
   margin-top: 1rem;
@@ -152,20 +159,44 @@ input[type="text"] {
 }
 
 
-#button {
+#buttons {
   display: flex;
   flex-direction: row;
   justify-content: left;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
-  width: 77.5rem;
-
+  width: 76.5rem;
   gap: 20px;
   border-radius: 3px;
   border: none;
 }
 
+ .wrapper {
+  display: none;
+  flex-direction: column;
+  font-family: 'Lato';
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  transition: height 0.3s ease-in-out;
+  position: relative;
+  z-index: 100;
+}
+
+.wrapper input {
+  color: white;
+  border: none;
+} */
+
+.closeList{
+  width:12px;
+  height:12px;
+}
+
+.droppdown-menu{
+  background-color: var(--blue);
+}
 /*? button Ingredients*/
 
 #dropdownButtonBlue {
@@ -191,4 +222,19 @@ input[type="text"] {
   width: 10.6rem;
   height: 4.3rem;
   color: white;
+}
+
+#close{
+  position: relative;
+  left: 30px;
+}
+
+.list-item{
+  display: flex;
+  flex-direction: row;
+  width: 550px;
+  height: 100px;
+  color: white;
+  margin-left: 13px;
+  background-color: var(--blue);
 }
