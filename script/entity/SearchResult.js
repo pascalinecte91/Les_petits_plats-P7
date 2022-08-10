@@ -15,11 +15,11 @@ class SearchResult {
 			//console.log(recipesFiltered);
 			Array.from(recipe.ingredients).map((ingredient) => {
 				this.ingredients.add(ingredient.ingredient);
-				//console.log(ingredients);
+				//console.log(ingredient.ingredient);
 			});
 			Array.from(recipe.ustensils).map((ustensil) => {
-				this.ustensils.add(ustensil.ustensil);
-				console.log(ustensil);
+				this.ustensils.add(ustensil);
+				//console.log(ustensil);
 			});
 			Array.from(recipe.appliances).map((appliance) => {
 				this.appliances.add(appliance);

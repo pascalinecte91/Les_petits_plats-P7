@@ -12,4 +12,4 @@ let result = searchService.launch();
 
 new CardRecipeBuilder().refreshCardSection(result.recipes);
 
-new ListBuilder(result, 'Ingredients').refreshListSection(result);
+new ListBuilder().refreshListSection(result);
