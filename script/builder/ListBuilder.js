@@ -1,41 +1,50 @@
+/* eslint-disable no-undef */
+/* eslint-disable class-methods-use-this */
+
 class ListBuilder {
-	
 	refreshListSection(searchResult) {
-		document.getElementById('ingredientList-blue').innerHTML = this.getHtmlList(searchResult.ingredients,'ingredients','Blue');
-		document.getElementById('ustensilList-green').innerHTML = this.getHtmlList(searchResult.ustensils,'ustensils','Green');
-		document.getElementById('applianceList-orange').innerHTML = this.getHtmlList(searchResult.appliances,'appareils','Orange');		
+		document.getElementById("ingredientsList").innerHTML = this.getHtmlList(
+			searchResult.ingredients,
+			"Ingredients",
+			"ingredient"
+		);
+		document.getElementById("ustensilsList").innerHTML = this.getHtmlList(
+			searchResult.ustensils,
+			"Ustensils",
+			"ustensil"
+		);
+		document.getElementById("appliancesList").innerHTML = this.getHtmlList(
+			searchResult.appliances,
+			"Appareils",
+			"appareil"
+		);
 	}
 
-	getHtmlList(elements, title, color) {
+	getHtmlList(elements, title, name) {
 		const listHtml = `
-		<div class="btn-group">
-			<div id="myDropdown" class="dropdown-content">
-				
-					<button class="btn dropdown-toggle"  type="button" id="dropdownButton${color}" data-bs-toggle="dropdown" 
-					aria-expanded="false">${title}</button>
-					<div class="iconDown"><i class="fa fa-chevron-down"></i>
-					</div>
-					<div class="searchInput">
-					<input  type="search"  name="" id="myInput"  class="filter-searchBar" placeholder="Rechercher un ustensil"/>
+		<div class="dropList">
+			<button id="">${title}
+			<i class="fas fa-chevron-down chevronDown toggleList"></i>
+			</button>
+			<div class="dropdown-content">
+				<div class= "tags">
+					<input type="text" class="tagInput" placeholder="recherchez un ${name}">
+					<i class="fas fa-chevron-up chevronDown toggleList"></i>
 				</div>
-				<ul class="dropdown-menu" aria-labelledby="dropdownButton${color}">${this.listElements(elements)}<i class="fa fa-chevron-down"></i>
-				</ul>
+				<ul class="listTags">${this.listElements(elements)}</ul>
 			</div>
-		</div>`;
+		</div>
+		`;
 		return listHtml;
-		}
+	}
 
 	listElements(elements) {
 		//console.log(elements);
-		let list = '';
+		let list = "";
 		elements.forEach((element) => {
-			list += `
-			<li class="list-item">${element}</li>`;
-			
+			list += `<li class="list-item">${element}</li>`;
 		});
 		return list;
 	}
 }
-
-
 export default ListBuilder;

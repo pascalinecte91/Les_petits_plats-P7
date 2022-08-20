@@ -1,4 +1,4 @@
-import SearchResult from './../entity/SearchResult.js';
+import SearchResult from "./../entity/SearchResult.js";
 
 class SearchService {
 	constructor(recipes) {
@@ -13,7 +13,7 @@ class SearchService {
 		this.recipesFiltered.add([...this.recipes][6]);
 		this.recipesFiltered.add([...this.recipes][9]);
 		this.recipesFiltered.add([...this.recipes][22]);
-		// this.recipesFiltered = this.recipes;
+		this.recipesFiltered = this.recipes;
 
 		// this.recipesFiltered = new Set([...this.recipes])
 		//  return new SearchResult(this.recipesFiltered);
