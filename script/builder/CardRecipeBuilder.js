@@ -11,7 +11,7 @@ class CardRecipeBuilder {
 
 	getHtmlCard(recipe) {
 		// console.log(recipe);
-		let picture = "";
+															let picture = "";
 		picture = recipe.name;
 		const html = `
 	<figure class="card-figure">

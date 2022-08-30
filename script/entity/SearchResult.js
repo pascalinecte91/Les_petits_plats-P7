@@ -1,16 +1,11 @@
 class SearchResult {
 	constructor(recipesFiltered) {
+	
 		this.recipes = recipesFiltered;
 		this.ingredients = new Set();
 		this.ustensils = new Set();
 		this.appliances = new Set();
-
-		/**
-		 *?: retourne sous forme de tableau les recipes par
-		 *! par ingredients
-		 *! par appareils
-		 *! par ustensils
-		 */
+	
 		Array.from(recipesFiltered).map((recipe) => {
 			//console.log(recipesFiltered);
 			Array.from(recipe.ingredients).map((ingredient) => {

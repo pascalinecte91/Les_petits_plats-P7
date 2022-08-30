@@ -27,13 +27,29 @@
 	<section header>
 		<img src="assets/logo.jpg" class="logo" alt="logo" />
 	</section>
-
 	<main>
-		<!--    SEARCH  RECIPES   -->
+	<!--          ALERTE MESSAGE   RECHERCHES    -->
+	<section id="resultSort" class="alertMessage">
+		<div class="msg" id="sortMsg"></div>
+		<i class="far fa-times-circle"></i>
+	</section>
+
+
+		<!--    SEARCH   INPUT RECIPES   -->
 		<section id="search">
-			<input type="text" id="inputSearch" class="loupe" placeholder="Rechercher une recette" />
-			<img src="assets/loupe.png" class="glass" alt="loupe" />
+			<div class="loupe">
+				<input type="text" id="inputSearch" placeholder="Rechercher une recette" />
+				<div class="icon">
+				<img src="assets/loupe.png" class="glass" alt="loupe" />
+			</div></div>
 		</section>
+
+		<!--   BADGES DES RECEHRCHES CIBLEES-->
+		<div id="wrapperBadge">
+			<div id="ingredBadge " class="elementBadge blue"></div>
+			<div id="ustensilBadge" class="elementBadge green"></div>
+			<div id="applianceBadge " class="elementBadge orange"></div>
+		</div>
 
 		<!--    NAVIGATION  - SORT - BUTTON   -->
 
@@ -49,7 +65,7 @@
 		<script type="module" src="./app.js"></script>
 		<script type="module" src="./script/builder/CardRecipeBuilder.js"></script>
 		<script type="module" src="./script/builder/ListBuilder.js"></script>
-		<script type="module" src="./script/listener/event.js"></script>
+		<script type="module" src="./script/listener/eventListener.js"></script>
 
 	</main>
 </body>

@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable class-methods-use-this */
-
 class ListBuilder {
 	refreshListSection(searchResult) {
 		document.getElementById("ingredientsList").innerHTML = this.getHtmlList(
@@ -28,7 +25,7 @@ class ListBuilder {
 			</button>
 			<div class="dropdown-content">
 				<div class= "tags">
-					<input type="text" class="tagInput" placeholder="recherchez un ${name}">
+					<input type="text" class="filterInputList" placeholder="recherchez un ${name}">
 					<i class="fas fa-chevron-up chevronDown toggleList"></i>
 				</div>
 				<ul class="listTags">${this.listElements(elements)}</ul>
