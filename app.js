@@ -12,6 +12,7 @@ const eventListener = new EventListener();
 eventListener.addClickEventList();
 eventListener.addFilterEventList();
 eventListener.addEventFilteredSearchList();
+// eventListener.closeTag();
 
 
 let result = searchService.launch();

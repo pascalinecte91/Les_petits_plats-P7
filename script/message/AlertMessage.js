@@ -1,11 +1,11 @@
-import SearchResult from "./../entity/searchResult.js";
+import SearchResult from "./../entity/SearchResult.js";
 
 class AlertMessage {
 	refresh(searchResult) {
 		const quantitySearch = searchResult.length;
 		//console.log(searchResult);
 		const alertMessage = document.getElementById('sortMsg');
-		console.log(quantitySearch);
+		//console.log(quantitySearch);
 		if (quantitySearch === 0) {
 			alertMessage.innerHTML = 'Aucune recette! Merci de refaire une recherche';
 		} else {

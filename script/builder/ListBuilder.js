@@ -20,7 +20,7 @@ class ListBuilder {
 	getHtmlList(elements, title, name) {
 		const listHtml = `
 		<div class="dropList">
-			<button id="">${title}
+			<button class="toggleList">${title}
 			<i class="fas fa-chevron-down chevronDown toggleList"></i>
 			</button>
 			<div class="dropdown-content">
