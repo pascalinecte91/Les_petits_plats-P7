@@ -245,9 +245,7 @@ button {
   color: white;
 }
 
-/*! Masque la liste des tags */
-
-
+/** Masque la liste des tags */
 .dropdown-content {
   display: none;
   flex-direction: row;
@@ -261,12 +259,12 @@ button {
   position: relative;
 }
 
-/*!  Affichage la liste des tags */
+/*** Affichage la liste des tags */
 .dropList.active .dropdown-content {
   display: block;
 }
 
-/*! Masque le bouton si la liste des tags est ouverte */
+/*** Masque le bouton si la liste des tags est ouverte */
 .dropList.active button {
   display: none;
 }
@@ -330,8 +328,6 @@ button {
   overflow: hidden;
   font-size: 1.1rem;
   color: red
-    /* transform: scaleY(0);
-  transition: transform 300ms; */
 }
 
 /**********   TAGS *****************/
@@ -358,6 +354,7 @@ button {
 
 .tagContent li.list-item:not(.no-hover):hover {
   color: white;
+  cursor: inherit;
 }
 
 .showTag {

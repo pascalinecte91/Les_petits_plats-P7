@@ -61,27 +61,16 @@ class EventListener {
 			//ce qu'on inscrit dans l input
 			let inputHtml = e.target;
 			// si ce qu'on ecoute est contenu dans la class
-
-			
 			if (inputHtml.classList.contains('filterInputList')) {
-				//console.log(inputHtml);
 				// on recupere  les valeurs inscrites dans l input
 				let inputValue = inputHtml.value;
-
-				//console.log(inputValue);
 				// on affiche et on check les elements deja trouvé dans la liste et
 				document.querySelectorAll('.elementsList.active .list-item').forEach((element) => {
-					let elementValueList = element.innerHTML.toLocaleLowerCase();
-					//console.log(elementValueList);
+					const elementValueList = element.innerHTML.toLocaleLowerCase();
 					if (element.addEventListener('click', () => {
-						// renvoi l element de la liste dans le tag
+						// renvoi l element de la liste  cliké
 						document.getElementById('tagList').append(element);
-						document.getElementById('tagList').classList.add('showTag');
-
-						const closeTag = document.querySelector('.fa-times-circle');
-						closeTag.addEventListener('click', () => {
-							document.getElementById('tagList').classList.remove('showTag');
-						});
+						document.getElementById('tagList').classList.add('showTag');	
 					})
 				);
 					// si il existe , indexOf  renverra à l element trouvé (sa valeur)
@@ -96,6 +85,13 @@ class EventListener {
 				});
 			}
 		};
+	}
+	
+	closeTagChoice(element) {
+		const closeTag = document.getElementById('tagList');
+			if(closeTag.addEventListener('click', () => {
+			document.getElementById('tagList').classList.remove('showTag');
+			}));
 	}
 }
 
