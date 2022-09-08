@@ -39,6 +39,7 @@ class ListBuilder {
 		//console.log(elements);
 		let list = "";
 		elements.forEach((element) => {
+			//console.log(element);
 			list += `<li class="list-item">${element}</li>`;
 		});
 		return list;

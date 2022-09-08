@@ -1,5 +1,6 @@
 import { recipes } from '../../data/recipes.js';
 import CardRecipeBuilder from '../builder/CardRecipeBuilder.js';
+import ListBuilder from '../builder/ListBuilder.js';
 import AlertMessage from '../message/AlertMessage.js';
 
 class EventListener {
@@ -7,31 +8,30 @@ class EventListener {
 		this.searchService = searchService;
 	}
 
-	addClickEventList() {
-		document.querySelector('#searchBtn').addEventListener('click', (e) => {
-			const target = e.target;
-			// si on clique sur un des 3 boutons
-			if (target.classList.contains('toggleList')) {
-				let isActive = target.closest('.elementsList').classList.contains('active');
+	/**
+	 * ecoute toutes  les evenements:
+	 * toutes  les fonctions
+	 *
+	 */
 
-				//On ferme toutes les listes ouvertes sauf celle qu'on click
-				document.querySelectorAll('.elementsList').forEach((element) => {
-					if (!isActive) {
-						element.classList.remove('active');
-					}
-				});
-				// ouvre ou ferme la liste concernée
-				// on depose la classe sur la div parente toggleList
-				target.closest('.elementsList').classList.toggle('active');
-				const itemsList = document.querySelectorAll('.elementsList.active .list-item');
-				this.addClickTag(itemsList)
-			}
-		});
+	listen() {
+		this.searchGlassList();
+		this.clickList();
+		this.filterInputTagList();
+		this.toggleTagList();
+		this.removeTag();
 	}
 
-	addEventFilteredSearchList() {
+	/**
+	 * à la recherche  d'une recette input loupe
+	 * triera les recettes
+	 * indiquera le nombre correspondant
+	 * pour les afficher
+	 */
+	searchGlassList() {
 		const searchInput = document.getElementById('inputSearch');
 		const closePopup = document.querySelector('.fa-times-circle');
+
 		//fermeture de  l'alerte
 		closePopup.addEventListener('click', () => {
 			document.getElementById('resultSort').classList.remove('showInput');
@@ -55,7 +55,36 @@ class EventListener {
 		};
 	}
 
-	addFilterEventList() {
+	/**
+	 * ouverture de l'une des 3 listes click
+	 * fermeture de l'une des 3 listes click
+	 */
+	clickList() {
+		document.querySelector('#searchBtn').addEventListener('click', (e) => {
+			const target = e.target;
+			//console.log(target);
+			// si on clique sur un des 3 boutons
+			if (target.classList.contains('toggleList')) {
+				let isActive = target
+					.closest('.elementsList')
+					.classList.contains('active');
+				//On ferme toutes les listes ouvertes sauf celle qu'on click
+				document.querySelectorAll('.elementsList').forEach((element) => {
+					if (!isActive) {
+						element.classList.remove('active');
+					}
+				});
+				// ouvre ou ferme la liste concernée
+				// on depose la classe sur la div parente toggleList
+				target.closest('.elementsList').classList.toggle('active');
+			}
+		});
+	}
+	/**
+	 * recherche sur l input à l'ouverture d une liste
+	 * affichage des elements selon recehrche de l input
+	 */
+	filterInputTagList() {
 		// On ecoute sur la saisi au clavier
 		document.querySelector('#searchBtn').onkeyup = (e) => {
 			//ce qu'on inscrit dans l input
@@ -66,14 +95,9 @@ class EventListener {
 				let inputValue = inputHtml.value;
 				// on affiche et on check les elements deja trouvé dans la liste et
 				document.querySelectorAll('.elementsList.active .list-item').forEach((element) => {
+					//console.log(element);
 					const elementValueList = element.innerHTML.toLowerCase();
-					// if (
-					// 	element.addEventListener('click', () => {
-					// 		// renvoi l element de la liste  cliké
-					// 		document.getElementById('tagList').append(element);
-					// 		document.getElementById('tagList').classList.add('showTag');
-					// 	})
-					// );
+					//console.log(elementValueList);
 					// si il existe , indexOf  renverra à l element trouvé (sa valeur)
 					let isNotEmpty = elementValueList.indexOf(inputValue) >= 0; // si yen a pas zero
 					if (isNotEmpty) {
@@ -83,47 +107,44 @@ class EventListener {
 						//sinon  on l'a remet
 						element.classList.add('hidden');
 					}
-					});
+				});
 			}
 		};
 	}
 
-	addClickTag(listElement) {
-		listElement.forEach(element => {
-			if (element.addEventListener('click', () => {
-				// renvoi l element de la liste  cliké
-				const elementvalue = element.innerHTML.toLowerCase();
+	/**
+	 * affichage du ou des tags selon recherche
+	 */
+	toggleTagList() {
+		document.querySelector('#searchBtn').addEventListener('click', (e) => {
+			const target = e.target;
+			//console.log(target); // li
 
-				const choice = document.createElement('li');
-				console.log(choice);
-				choice.classList.add('tagElement');
-				choice.innerHTML = elementvalue;
-
-				const icon = document.querySelector('.fa-times-circle');
-				choice.append(icon)
-				// icon.addEventListener('click', this.closeTagChoice(element))
-				
-				document.getElementById('tagList').append(element);
-				document.getElementById('tagList').classList.add('showTag');	
-				
-			}));
-		})
-	
-	}
-	closeTagChoice(element) {
-		const closeTag = document.getElementById('tagList');
-		if (
-			closeTag.addEventListener('click', () => {
-				document.getElementById('tagList').classList.remove('showTag');
-			})
-		);
+			if (target.classList.contains('list-item')) {
+				const elementValue = target.innerHTML.toLowerCase();
+				//console.log(elementValue);
+				let dataType = target.closest('.elementsList').dataset.type;
+				console.log('elementsList');
+				let tagHtmlList = `
+				<li class="elementTag tag-${dataType}">${elementValue} <i class="far fa-times-circle tag"></i></li>`;
+				document.getElementById('tagList').innerHTML += tagHtmlList;
+			}
+		});
 	}
 
-	addTag() {
-		console.log(addTag);
-		document.getElementById('tagList').insertAdjacentHTML('afterend', tagList);
+	/**
+	 * Close  tag
+	 * fermeture  au click  sur le tag selectionné
+	 */
 
+	removeTag() {
+		document.querySelector('#tagList').addEventListener('click', (e) => {
+			const target = e.target;
+			console.log(target);
+			if (target.classList.contains('tag')) {
+				target.closest('.elementTag').remove();
+			}
+		});
 	}
 }
-
 export default EventListener;

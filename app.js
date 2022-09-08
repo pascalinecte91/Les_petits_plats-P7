@@ -8,12 +8,8 @@ import EventListener from "./script/listener/EventListener.js";
 const recipeDataProvider = new RecipeDataProvider();
 const searchService = new SearchService(recipeDataProvider.recipes);
 
-const eventListener = new EventListener();
-eventListener.addClickEventList();
-eventListener.addFilterEventList();
-eventListener.addEventFilteredSearchList();
-eventListener.closeTagChoice();
-// eventListener.addTag();
+const eventListener = new EventListener(searchService);
+eventListener.listen();
 
 let result = searchService.launch();
 //console.log(result);

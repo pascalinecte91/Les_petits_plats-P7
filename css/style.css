@@ -234,7 +234,7 @@ button {
   display: flex;
   align-items: center;
   margin-right: 2rem;
-} 
+}
 
 .list-item:hover {
   color: red;
@@ -332,19 +332,18 @@ button {
 
 /**********   TAGS *****************/
 
-#tagList{
-  display: none;
+#tagList {
+  /* display: none;  */
   margin-top: 1rem;
-  justify-content: flex-end;
   align-items: center;
+  display: flex;
 }
 
 
-.tagContent  {
-  display:flex;
+.tagContent {
+  display: flex;
   align-content: center;
-  border-radius: 5px;
-  background-color: var(--blue);
+
   padding: 1rem;
   height: 37px;
   list-style: none;
@@ -357,8 +356,9 @@ button {
 }
 
 .showTag {
-  display: flex!important;
+  display: flex !important;
 }
+
 .showInput {
   display: flex !important;
 }
@@ -366,10 +366,25 @@ button {
 .fa-times-circle.sort::after {
   cursor: pointer;
 }
+
 .fa-times-circle.tag {
   cursor: pointer;
 }
-.tag-element{
-  margin:10px;
-  background-color: var(--blue)
+
+.elementTag {
+  margin: 0.8rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.tag-ingredients {
+  background-color: var(--blue);
+}
+
+.tag-ustensils {
+  background-color: var(--green);
+}
+
+.tag-appliances {
+  background-color: var(--orange);
 }
