@@ -337,15 +337,14 @@ button {
   margin-top: 1rem;
   justify-content: flex-end;
   align-items: center;
-  flex-wrap: wrap;
-
 }
+
+
 .tagContent  {
   display:flex;
   align-content: center;
   border-radius: 5px;
   background-color: var(--blue);
-  max-width: 150px;
   padding: 1rem;
   height: 37px;
   list-style: none;
@@ -369,4 +368,8 @@ button {
 }
 .fa-times-circle.tag {
   cursor: pointer;
+}
+.tag-element{
+  margin:10px;
+  background-color: var(--blue)
 }

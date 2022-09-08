@@ -13,7 +13,7 @@ eventListener.addClickEventList();
 eventListener.addFilterEventList();
 eventListener.addEventFilteredSearchList();
 eventListener.closeTagChoice();
-
+// eventListener.addTag();
 
 let result = searchService.launch();
 //console.log(result);

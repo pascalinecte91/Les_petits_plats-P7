@@ -17,6 +17,9 @@ On peut cloner le projet :
 
 - <https://github.com/pascalinecte91/Les_petits_plats-P7.git>
 
+Voir  le projet :
+- <https://pascalinecte91.github.io/Les_petits_plats-P7/>
+
 Les maquettes se trouvent :
 
 - <https://www.figma.com/file/xqeE1ZKlHUWi2Efo8r73NK/UI-Design-Les-Petits-Plats-FR>

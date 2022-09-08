@@ -12,9 +12,7 @@ class EventListener {
 			const target = e.target;
 			// si on clique sur un des 3 boutons
 			if (target.classList.contains('toggleList')) {
-				let isActive = target
-					.closest('.elementsList')
-					.classList.contains('active');
+				let isActive = target.closest('.elementsList').classList.contains('active');
 
 				//On ferme toutes les listes ouvertes sauf celle qu'on click
 				document.querySelectorAll('.elementsList').forEach((element) => {
@@ -25,6 +23,8 @@ class EventListener {
 				// ouvre ou ferme la liste concernée
 				// on depose la classe sur la div parente toggleList
 				target.closest('.elementsList').classList.toggle('active');
+				const itemsList = document.querySelectorAll('.elementsList.active .list-item');
+				this.addClickTag(itemsList)
 			}
 		});
 	}
@@ -42,7 +42,7 @@ class EventListener {
 			// Si plus grand  que 1 caractere
 			if (input.length >= 1) {
 				const resultat = recipes.filter((recipe) =>
-					recipe.name.toLocaleLowerCase().includes(input.toLocaleLowerCase())
+					recipe.name.toLowerCase().includes(input.toLowerCase())
 				);
 				new CardRecipeBuilder().refreshCardSection(resultat);
 				new AlertMessage().refresh(resultat);
@@ -66,13 +66,14 @@ class EventListener {
 				let inputValue = inputHtml.value;
 				// on affiche et on check les elements deja trouvé dans la liste et
 				document.querySelectorAll('.elementsList.active .list-item').forEach((element) => {
-					const elementValueList = element.innerHTML.toLocaleLowerCase();
-					if (element.addEventListener('click', () => {
-						// renvoi l element de la liste  cliké
-						document.getElementById('tagList').append(element);
-						document.getElementById('tagList').classList.add('showTag');	
-					})
-				);
+					const elementValueList = element.innerHTML.toLowerCase();
+					// if (
+					// 	element.addEventListener('click', () => {
+					// 		// renvoi l element de la liste  cliké
+					// 		document.getElementById('tagList').append(element);
+					// 		document.getElementById('tagList').classList.add('showTag');
+					// 	})
+					// );
 					// si il existe , indexOf  renverra à l element trouvé (sa valeur)
 					let isNotEmpty = elementValueList.indexOf(inputValue) >= 0; // si yen a pas zero
 					if (isNotEmpty) {
@@ -82,16 +83,46 @@ class EventListener {
 						//sinon  on l'a remet
 						element.classList.add('hidden');
 					}
-				});
+					});
 			}
 		};
 	}
+
+	addClickTag(listElement) {
+		listElement.forEach(element => {
+			if (element.addEventListener('click', () => {
+				// renvoi l element de la liste  cliké
+				const elementvalue = element.innerHTML.toLowerCase();
+
+				const choice = document.createElement('li');
+				console.log(choice);
+				choice.classList.add('tagElement');
+				choice.innerHTML = elementvalue;
+
+				const icon = document.querySelector('.fa-times-circle');
+				choice.append(icon)
+				// icon.addEventListener('click', this.closeTagChoice(element))
+				
+				document.getElementById('tagList').append(element);
+				document.getElementById('tagList').classList.add('showTag');	
+				
+			}));
+		})
 	
+	}
 	closeTagChoice(element) {
 		const closeTag = document.getElementById('tagList');
-			if(closeTag.addEventListener('click', () => {
-			document.getElementById('tagList').classList.remove('showTag');
-			}));
+		if (
+			closeTag.addEventListener('click', () => {
+				document.getElementById('tagList').classList.remove('showTag');
+			})
+		);
+	}
+
+	addTag() {
+		console.log(addTag);
+		document.getElementById('tagList').insertAdjacentHTML('afterend', tagList);
+
 	}
 }
 
