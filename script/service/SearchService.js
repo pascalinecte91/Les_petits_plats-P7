@@ -20,6 +20,7 @@ class SearchService {
 
 		let searchResult = new SearchResult(this.recipesFiltered);
 		//console.log(searchResult);
+		
 
 		return searchResult;
 	}

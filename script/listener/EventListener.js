@@ -56,22 +56,23 @@ class EventListener {
 	}
 
 	/**
-	 * ouverture de l'une des 3 listes click
-	 * fermeture de l'une des 3 listes click
+	 * click button ouverture  de l'une des 3 listes click
+	 * click button fermeture de l'une des 3 listes click
 	 */
 	clickList() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
 			const target = e.target;
-			//console.log(target);
+			console.log(target);
 			// si on clique sur un des 3 boutons
 			if (target.classList.contains('toggleList')) {
-				let isActive = target
-					.closest('.elementsList')
-					.classList.contains('active');
+				let isActive = target.closest('.elementsList').classList.contains('active');
+				
+				//console.log(isActive);
 				//On ferme toutes les listes ouvertes sauf celle qu'on click
 				document.querySelectorAll('.elementsList').forEach((element) => {
 					if (!isActive) {
 						element.classList.remove('active');
+
 					}
 				});
 				// ouvre ou ferme la liste concernée
@@ -82,7 +83,7 @@ class EventListener {
 	}
 	/**
 	 * recherche sur l input à l'ouverture d une liste
-	 * affichage des elements selon recehrche de l input
+	 * affichage des elements selon recherche de l input
 	 */
 	filterInputTagList() {
 		// On ecoute sur la saisi au clavier
@@ -95,8 +96,8 @@ class EventListener {
 				let inputValue = inputHtml.value;
 				// on affiche et on check les elements deja trouvé dans la liste et
 				document.querySelectorAll('.elementsList.active .list-item').forEach((element) => {
-					//console.log(element);
-					const elementValueList = element.innerHTML.toLowerCase();
+					console.log(element);
+					const elementValueList = element.innerHTML;
 					//console.log(elementValueList);
 					// si il existe , indexOf  renverra à l element trouvé (sa valeur)
 					let isNotEmpty = elementValueList.indexOf(inputValue) >= 0; // si yen a pas zero
@@ -105,7 +106,7 @@ class EventListener {
 						element.classList.remove('hidden');
 					} else {
 						//sinon  on l'a remet
-						element.classList.add('hidden');
+					    element.classList.add('hidden');
 					}
 				});
 			}
@@ -114,6 +115,7 @@ class EventListener {
 
 	/**
 	 * affichage du ou des tags selon recherche
+	 * 1ere lettre majuscule
 	 */
 	toggleTagList() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
@@ -121,13 +123,16 @@ class EventListener {
 			//console.log(target); // li
 
 			if (target.classList.contains('list-item')) {
-				const elementValue = target.innerHTML.toLowerCase();
+				const elementValue = target.innerHTML.charAt(0).toUpperCase() + target.innerHTML.slice(1);
 				//console.log(elementValue);
 				let dataType = target.closest('.elementsList').dataset.type;
-				console.log('elementsList');
+				
+				//console.log('elementsList');
 				let tagHtmlList = `
 				<li class="elementTag tag-${dataType}">${elementValue} <i class="far fa-times-circle tag"></i></li>`;
 				document.getElementById('tagList').innerHTML += tagHtmlList;
+				
+		
 			}
 		});
 	}
