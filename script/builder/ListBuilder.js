@@ -40,7 +40,7 @@ class ListBuilder {
 		let list = "";
 		elements.forEach((element) => {
 			//console.log(element);
-			list += `<li class="list-item">${element}</li>`;
+			list += `<li class="list-item">${element.toLowerCase()}</li>`;
 		});
 		return list;
 	}

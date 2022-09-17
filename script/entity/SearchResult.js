@@ -1,3 +1,5 @@
+
+
 class SearchResult {
 	constructor(recipesFiltered) {
 	

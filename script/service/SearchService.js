@@ -1,28 +1,36 @@
 import SearchResult from './../entity/SearchResult.js';
+import CardRecipeBuilder from './../builder/CardRecipeBuilder.js';
+import ListBuilder from './../builder/ListBuilder.js';
+import SearchParams from './SearchParams.js';
 
 class SearchService {
 	constructor(recipes) {
 		this.recipes = recipes;
+		this.cardRecipeBuilder = new CardRecipeBuilder();
+		this.listBuilder = new ListBuilder();
 	}
 
 	launch() {
 		this.recipesFiltered = new Set();
-		this.recipesFiltered.add([...this.recipes][0]);
-		this.recipesFiltered.add([...this.recipes][1]);
-		this.recipesFiltered.add([...this.recipes][7]);
-		this.recipesFiltered.add([...this.recipes][6]);
-		this.recipesFiltered.add([...this.recipes][9]);
-		this.recipesFiltered.add([...this.recipes][22]);
-		//this.recipesFiltered = this.recipes;
+		this.searchParams = new SearchParams();
 
-		//this.recipesFiltered = new Set([...this.recipes])
-		// return new SearchResult(this.recipesFiltered);
+		// ici  debut de recherche
+		Array.from(this.recipes).map((recipe) => {
+			console.log(recipe.name, this.searchParams.input);
+			if (recipe.isValidSearchInput(this.searchParams.input)
+				//&& recipe.hasIngredients(this.searchParams.ingredients)
+				//&& recipe.hasUstensils(this.searchParams.ustensils)
+				&& recipe.hasAppliances(this.searchParams.appliances)
+			) {
+				this.recipesFiltered.add(recipe);
+			}
+		});
 
-		let searchResult = new SearchResult(this.recipesFiltered);
-		//console.log(searchResult);
-		
+		// fin de recherche
 
-		return searchResult;
+		this.searchResult = new SearchResult(this.recipesFiltered);
+		this.cardRecipeBuilder.refreshCardSection(this.searchResult.recipes);
+		this.listBuilder.refreshListSection(this.searchResult);
 	}
 }
 
