@@ -8,6 +8,8 @@ class SearchResult {
 		this.ustensils = new Set();
 		this.appliances = new Set();
 	
+		//? MAP va remplir un nouv array avec les resultats de l'appel
+
 		Array.from(recipesFiltered).map((recipe) => {
 			//console.log(recipesFiltered);
 			Array.from(recipe.ingredients).map((ingredient) => {

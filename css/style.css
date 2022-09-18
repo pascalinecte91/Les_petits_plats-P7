@@ -3,6 +3,9 @@
 body {
   font-family: 'Lato', sans-serif;
   font-family: 'Roboto', sans-serif;
+  width: 100vh;
+  margin: 0rem 1rem;
+
 }
 
 :root {
@@ -20,16 +23,20 @@ p {
 }
 
 main {
+  justify-content: space-around;
   width: 76.5rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/*? ***********  SECTION  entetes ***********/
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+/*? ***********  SECTION  header ***********/
+.header {
+  display: flex;
+  justify-content: center;
+  width: 76.5rem;
+  margin-bottom: 1rem;
+
+}
+
+.header img {
   height: 6.5rem;
 }
 
@@ -38,9 +45,9 @@ main {
 #recipesContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-
+  margin-left: -1rem;
 }
 
 .card-body {
@@ -72,7 +79,6 @@ main {
 span {
   display: flex;
   flex-direction: row;
-
 }
 
 .card-title {
@@ -104,7 +110,6 @@ figcaption.detail {
   -webkit-box-orient: vertical;
   margin-right: 5px;
 }
-
 .card-desc {
   width: 100%;
   display: -webkit-box;
@@ -113,65 +118,28 @@ figcaption.detail {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
-
 .card-body:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /*? SECTION Partie recherche Loupe*/
-/* .loupe {
-  display: flex;
- 
-  height: 4.3rem;
-
-  border-radius: 5px;
-  background: var(--downCard);
-  margin-top: 1rem;
-} */
-
-/*! custom input loupe */
-/* .glass {
-  width: 31px;
-  height: 31px;
-  position: relative;
-  top: 32%;
-  z-index: 5;
-  margin-right: 0.8rem;
-  background-color: transparent;
-}
 
 #inputSearch {
-  display: flex;
-  width: 76.5rem;
-  align-content: center;
-  background-color: var(--downCard);
-  border: none;
-  padding-left: 0.4rem;
-}
-
-
-.loupe {
-  background-color: var(--downCard);
-  border: none;
-
-  font-weight: 100;
-} */
-
-#inputSearch {
-  width: 103%;
   height: 70px;
   background-color: #E7E7E7;
   border-radius: 5px;
   border: none;
   font-size: 18px;
   padding-left: 2rem;
+  color: white;
+  
 }
 
 .loupe {
   position: relative;
-  padding-right: 2rem;
   background-color: #E7E7E7;
   border-radius: 10px;
+  margin-right: 0.8rem;
 }
 
 .icon {
@@ -210,7 +178,6 @@ button {
   border: none;
 }
 
-
 /*! ****************  SECTION TAGS **********/
 .listTags {
   list-style: none;
@@ -220,7 +187,7 @@ button {
   overflow: hidden;
   padding: 1rem;
   height: 100%;
-  gap: 0px 5px;
+  gap: 0px 2rem;
   max-width: 41.68rem;
   max-height: 24.81rem;
   border-radius: 5px;
@@ -254,6 +221,7 @@ button {
   font-size: 1.1rem;
   color: white;
   position: relative;
+ 
 }
 
 /*** Affichage la liste des tags */
@@ -329,19 +297,18 @@ button {
 
 /**********   TAGS *****************/
 
+
 #tagList {
 
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
 
-
 .tagContent {
   display: flex;
   align-content: center;
-  height: 37px;
   list-style: none;
   color: white;
 }
@@ -383,4 +350,33 @@ button {
 
 .tag-appliances {
   background-color: var(--orange);
+}
+
+
+
+/**?    RESPONSIVE */
+
+@media only screen and (min-width: 1440px) {
+
+}
+@media only screen and (min-width: 1288px) and (max-width: 1439.99) {
+ 
+
+@media only screen and (min-width: 1024px) and (max-width: 1287.99) {
+  
+}
+@media only screen and (min-width: 768px) and (max-width: 1023.99) {
+
+}
+
+@media only screen and (min-width: 425px) and (max-width: 767.99) {
+  .figure {
+    margin: 0 10px 1rem;
+}
+#recipesContainer {
+ margin-left: -2rem;
+  justify-content: space-around;
+ 
+}
+}
 }

@@ -377,7 +377,7 @@ export const recipes = [
   },
   {
     id: 11,
-    name: "Salade tomate, mozzarella et pommes",
+    name: "Salade tomate mozzarella et pommes",
     servings: 4,
     ingredients: [
       {

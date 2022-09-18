@@ -2,17 +2,15 @@ import { recipes } from '../../data/recipes.js';
 import CardRecipeBuilder from '../builder/CardRecipeBuilder.js';
 import ListBuilder from '../builder/ListBuilder.js';
 import AlertMessage from '../message/AlertMessage.js';
+import RecipeDto from '../dto/RecipeDto.js';
 
 class EventListener {
 	constructor(searchService) {
 		this.searchService = searchService;
 	}
 
-	/**
-	 * ecoute toutes  les evenements:
-	 * toutes  les fonctions
-	 *
-	 */
+	
+	 //* ecoute toutes  les evenements:toutes  les fonctions
 
 	listen() {
 		this.searchGlassList();
@@ -22,28 +20,26 @@ class EventListener {
 		this.removeTag();
 	}
 
-	/**
-	 * à la recherche  d'une recette input loupe
-	 * triera les recettes
-	 * indiquera le nombre correspondant
-	 * pour les afficher
-	 */
-	searchGlassList() {
-		const searchInput = document.getElementById('inputSearch');
+	//* à la recherche  d'une recette input loupe triera les recettes
+	//* indiquera le nombre correspondant pour les afficher
 
-		searchInput.oninput = () => {
-			const input = searchInput.value;
-			// Si plus grand  que 1 caractere
-			if (input.length >= 1) {
+	searchGlassList() {
+		//console.log(this);
+		document.querySelector('#inputSearch').addEventListener('keyup', (e) => {
+		let searchInput = e.target;
+	
+		let searchValue = searchInput.value;
+			//console.log(this);
+			// Si plus grand  que 3 caractere
+			if (searchValue.length >= 3) {
 				this.searchService.launch();
 			}
-		};
-	}
+		})
+	};
 
-	/**
-	 * click button ouverture  de l'une des 3 listes click
-	 * click button fermeture de l'une des 3 listes click
-	 */
+	//* click button ouverture  de l'une des 3 listes click
+	//* click button fermeture de l'une des 3 listes click
+
 	toggleList() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
 			const target = e.target;
@@ -67,15 +63,16 @@ class EventListener {
 			}
 		});
 	}
-	/**
-	 * recherche sur l input à l'ouverture d une liste
-	 * affichage des elements selon recherche de l input
-	 */
+
+	//* recherche sur l'input à l'ouverture d une liste
+	//* affichage des elements selon recherche de l input
+
 	filterTag() {
 		// On ecoute sur la saisi au clavier
 		document.querySelector('#searchBtn').onkeyup = (e) => {
 			//ce qu'on inscrit dans l input
 			let inputHtml = e.target;
+	
 			// si ce qu'on ecoute est contenu dans la class
 			if (inputHtml.classList.contains('filterInputList')) {
 				// on recupere  les valeurs inscrites dans l input
@@ -84,7 +81,7 @@ class EventListener {
 				document
 					.querySelectorAll('.elementsList.active .list-item')
 					.forEach((element) => {
-						console.log(element);
+						//console.log(element);
 						const elementValueList = element.innerHTML;
 						//console.log(elementValueList);
 						// si il existe , indexOf  renverra à l element trouvé (sa valeur)
@@ -101,18 +98,15 @@ class EventListener {
 		};
 	}
 
-	/**
-	 * affichage du ou des tags selon recherche
-	 * 1ere lettre majuscule
-	 */
+	//* affichage du ou des tags selon recherche
+	
 	addTag() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
 			const target = e.target;
 			//console.log(target); // li
 
 			if (target.classList.contains('list-item')) {
-				const elementValue =
-					target.innerHTML.charAt(0).toUpperCase() + target.innerHTML.slice(1);
+				const elementValue = target.innerHTML;
 				//console.log(elementValue);
 				let dataType = target.closest('.elementsList').dataset.type;
 
@@ -126,10 +120,7 @@ class EventListener {
 		});
 	}
 
-	/**
-	 * Close  tag
-	 * fermeture  au click  sur le tag selectionné
-	 */
+	//* Close tag au click  sur le tag selectionné
 
 	removeTag() {
 		document.querySelector('#tagList').addEventListener('click', (e) => {

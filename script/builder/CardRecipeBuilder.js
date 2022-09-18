@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable class-methods-use-this */
 class CardRecipeBuilder {
 	refreshCardSection(recipes) {
 		let cardsHtml = "";
@@ -11,8 +9,8 @@ class CardRecipeBuilder {
 
 	getHtmlCard(recipe) {
 		// console.log(recipe);
-															let picture = "";
-		picture = recipe.name;
+		let picture = "";
+		picture = recipe.name.toLowerCase().replace(/ /g,'_');
 		const html = `
 	<figure class="card-figure">
 		<div class="card-body">
