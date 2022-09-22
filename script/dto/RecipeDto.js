@@ -1,4 +1,4 @@
-import { recipes } from '../../data/recipes.js';
+
 
 class RecipeDto {
 	constructor(recipeData) {
@@ -15,10 +15,11 @@ class RecipeDto {
 
 		recipeData.ingredients.map((ingredient) => {
 			this.ingredients.add(ingredient);
+
 		});
 
 		recipeData.ustensils.map((ustensil) => {
-			console.log(recipeData.ustensils);
+			//console.log(recipeData.ustensils);
 			this.ustensils.add(ustensil);
 		});
 
@@ -44,24 +45,25 @@ class RecipeDto {
 	hasUstensils(tags) {
 		let ustensils = [];
 		let recipeUstensils = Array.from(this.ustensils);
-		console.log(recipeUstensils);
 		recipeUstensils.forEach((el) => {
-			//console.log(el);
 			ustensils.push(el.ustensil);
-			console.log(el.ustensils);
+			console.log(el);
 		});
 		let isValid = [...tags].every((tags) => ustensils.includes(tags));
-		//console.log(tags);
+		console.log(tags);
 		return isValid;
 	}
 
-	hasAppliances(terms) {
-		//tous les terms doivent  etre dans this.appliances
-		// true = tous inclus
-		// false = un ou plusieurs non inclus
-		//console.log(terms);
-		//console.log(this.appliances);
-		return true;
+	hasAppliances(tags) {
+		let appliances = [];
+		let recipeAppliances = Array.from(this.appliances);
+		recipeAppliances.forEach((elem) => {
+			appliances.push(elem.ustensil);
+			console.log(elem);
+		});
+		let isValid = [...tags].every((tags) => appliances.includes(tags));
+		console.log(tags);
+		return isValid;
 	}
 }
 
