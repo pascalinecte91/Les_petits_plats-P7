@@ -1,5 +1,3 @@
-
-
 class SearchResult {
 	constructor(recipesFiltered) {
 	
@@ -13,15 +11,15 @@ class SearchResult {
 		Array.from(recipesFiltered).map((recipe) => {
 			//console.log(recipesFiltered);
 			Array.from(recipe.ingredients).map((ingredient) => {
-				this.ingredients.add(ingredient.ingredient);
+				this.ingredients.add(ingredient.toLowerCase());
 				//console.log(ingredient.ingredient);
 			});
 			Array.from(recipe.ustensils).map((ustensil) => {
-				this.ustensils.add(ustensil);
+				this.ustensils.add(ustensil.toLowerCase());
 				//console.log(ustensil);
 			});
 			Array.from(recipe.appliances).map((appliance) => {
-				this.appliances.add(appliance);
+				this.appliances.add(appliance.toLowerCase());
 				//console.log(appliance);
 			});
 		});
@@ -29,3 +27,4 @@ class SearchResult {
 }
 
 export default SearchResult;
+

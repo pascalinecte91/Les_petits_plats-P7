@@ -1,4 +1,3 @@
-
 class SearchParams {
 	constructor() {
 		this.ingredients = new Set();
@@ -19,11 +18,7 @@ class SearchParams {
 		Array.from(document.querySelectorAll('#tagList .tag-appliances')).map((tagElement) => {
             this.appliances.add(tagElement.innerText.trim())
 			//console.log(tagElement);
-		});
-
-		
-
-		
+		});	
 	}
 }
 

@@ -36,7 +36,7 @@ class CardRecipeBuilder {
 	ingredientHtml(recipe) {
 		let htmlContent = "";
 		// console.log(recipe.ingredients);
-		for (const ingredient of recipe.ingredients) {
+		for (const ingredient of recipe.ingredientsData) {
 			const ingredientQuantity = ingredient.quantity
 				? ingredient.unit
 					? `:&nbsp;${ingredient.quantity}&nbsp;${ingredient.unit}`

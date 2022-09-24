@@ -1,5 +1,3 @@
-
-
 class RecipeDto {
 	constructor(recipeData) {
 		//console.log(recipeData.ustensils);
@@ -12,10 +10,11 @@ class RecipeDto {
 		this.ustensils = new Set();
 		this.appliances = new Set();
 		this.ingredients = new Set();
+		this.ingredientsData = new Set();
 
-		recipeData.ingredients.map((ingredient) => {
-			this.ingredients.add(ingredient);
-
+		recipeData.ingredients.map((data) => {
+			this.ingredientsData.add(data);
+			this.ingredients.add(data.ingredient);
 		});
 
 		recipeData.ustensils.map((ustensil) => {
@@ -27,43 +26,43 @@ class RecipeDto {
 		this.appliances.add(recipeData.appliance);
 	}
 
-	isValidSearchInput(tag) {
-		return this.name.includes(tag) || this.description.includes(tag);
+	isValidSearchInput(inputValue) {
+		let value = inputValue.toLowerCase();
+
+		let test = [...this.ingredients].filter((ingredient) => {
+			return ingredient.toLowerCase().includes(value);
+		});
+		return this.name.toLowerCase().includes(value) || 
+		this.description.toLowerCase().includes(value) 
+		
 	}
 
-	hasIngredients(tags) {
-		const ingredients = [];
-		let recipeIngredients = Array.from(this.ingredients);
-		recipeIngredients.forEach((element) => {
-			ingredients.push(element.ingredient.toLowerCase());
+	convertObjectToArrayInLowerCase(objectSet) {
+		let arrayElement = Array.from(objectSet).map((element) => {
+			return element.toLowerCase();
 		});
-		let isValid = [...tags].every((tags) => ingredients.includes(tags));
-		//console.log(tags);
-		return isValid;
+
+		return arrayElement;
 	}
 
-	hasUstensils(tags) {
-		let ustensils = [];
-		let recipeUstensils = Array.from(this.ustensils);
-		recipeUstensils.forEach((el) => {
-			ustensils.push(el.ustensil);
-			console.log(el);
-		});
-		let isValid = [...tags].every((tags) => ustensils.includes(tags));
-		console.log(tags);
-		return isValid;
+	existInRecipe(selectedTags, recipeElements)
+	{
+		let selectedTagsArray = this.convertObjectToArrayInLowerCase(selectedTags);
+		let recipeElementsArray = this.convertObjectToArrayInLowerCase(recipeElements);
+
+		return selectedTagsArray.every((selectedTag) => recipeElementsArray.includes(selectedTag));
 	}
 
-	hasAppliances(tags) {
-		let appliances = [];
-		let recipeAppliances = Array.from(this.appliances);
-		recipeAppliances.forEach((elem) => {
-			appliances.push(elem.ustensil);
-			console.log(elem);
-		});
-		let isValid = [...tags].every((tags) => appliances.includes(tags));
-		console.log(tags);
-		return isValid;
+	hasIngredients(selectedTags) {
+		return this.existInRecipe(selectedTags, this.ingredients);
+	}
+
+	hasUstensils(selectedTags) {
+		return this.existInRecipe(selectedTags, this.ustensils);
+	}
+
+	hasAppliances(selectedTags) {
+		return this.existInRecipe(selectedTags, this.appliances);
 	}
 }
 
