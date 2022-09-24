@@ -41,11 +41,10 @@ class RecipeDto {
 		let arrayElement = Array.from(objectSet).map((element) => {
 			return element.toLowerCase();
 		});
-
 		return arrayElement;
 	}
 
-	existInRecipe(selectedTags, recipeElements)
+	isInRecipe(selectedTags, recipeElements)
 	{
 		let selectedTagsArray = this.convertObjectToArrayInLowerCase(selectedTags);
 		let recipeElementsArray = this.convertObjectToArrayInLowerCase(recipeElements);
@@ -54,15 +53,15 @@ class RecipeDto {
 	}
 
 	hasIngredients(selectedTags) {
-		return this.existInRecipe(selectedTags, this.ingredients);
+		return this.isInRecipe(selectedTags, this.ingredients);
 	}
 
 	hasUstensils(selectedTags) {
-		return this.existInRecipe(selectedTags, this.ustensils);
+		return this.isInRecipe(selectedTags, this.ustensils);
 	}
 
 	hasAppliances(selectedTags) {
-		return this.existInRecipe(selectedTags, this.appliances);
+		return this.isInRecipe(selectedTags, this.appliances);
 	}
 }
 
