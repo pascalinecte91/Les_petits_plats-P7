@@ -1,18 +1,18 @@
+/**
+ *? class qui retourne sous forme d' Objet Set
+ */
+
 class SearchResult {
-	constructor(recipesFiltered) {
-	
-		this.recipes = recipesFiltered;
+	constructor(recipesRecovered) {
+		this.recipes = recipesRecovered;
 		this.ingredients = new Set();
 		this.ustensils = new Set();
 		this.appliances = new Set();
-	
-		//? MAP va remplir un nouv array avec les resultats de l'appel
 
-		Array.from(recipesFiltered).map((recipe) => {
-			//console.log(recipesFiltered);
+		Array.from(recipesRecovered).map((recipe) => {
 			Array.from(recipe.ingredients).map((ingredient) => {
 				this.ingredients.add(ingredient.toLowerCase());
-				//console.log(ingredient.ingredient);
+				//console.log(ingredient);
 			});
 			Array.from(recipe.ustensils).map((ustensil) => {
 				this.ustensils.add(ustensil.toLowerCase());
@@ -25,6 +25,4 @@ class SearchResult {
 		});
 	}
 }
-
 export default SearchResult;
-

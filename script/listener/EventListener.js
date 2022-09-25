@@ -1,16 +1,21 @@
 import { recipes } from '../../data/recipes.js';
 import CardRecipeBuilder from '../builder/CardRecipeBuilder.js';
 import ListBuilder from '../builder/ListBuilder.js';
-import AlertMessage from '../message/AlertMessage.js';
 import RecipeDto from '../dto/RecipeDto.js';
+import AlertMessage from './../builder/AlertMessage.js'; 
+
+/**
+ *? Ecoute chaque évenement
+ *? - Recherche  Recettes  barre principale
+ *? - ouverture fermeture des 3 listes
+ *? - Recherche  dans chaque liste
+ *? - click  affiche et supprime Tag  
+ */
 
 class EventListener {
 	constructor(searchService) {
 		this.searchService = searchService;
 	}
-
-	
-	 //* ecoute toutes  les evenements:toutes  les fonctions
 
 	listen() {
 		this.searchGlassList();
@@ -20,26 +25,22 @@ class EventListener {
 		this.removeTag();
 	}
 
-	//* à la recherche  d'une recette input loupe triera les recettes
-	//* indiquera le nombre correspondant pour les afficher
-
+//* recherche  recette input loupe 
 	searchGlassList() {
-		//console.log(this);
 		document.querySelector('#inputSearch').addEventListener('keyup', (e) => {
 		let searchInput = e.target;
-	
 		let searchValue = searchInput.value;
-			//console.log(this);
 			// Si plus grand  que 3 caractere
 			if (searchValue.length >= 3) {
-				this.searchService.launch();
-			}
+			this.searchService.launch();
+			document.getElementById('resultSort').classList.add('showInput');
+			} else {
+			document.getElementById('resultSort').classList.remove('showInput');
+			}	
 		})
 	};
 
-	//* click button ouverture  de l'une des 3 listes click
-	//* click button fermeture de l'une des 3 listes click
-
+//* click button OPEN  - CLOSED (toogle) de l'une des 3 listes click
 	toggleList() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
 			const target = e.target;
@@ -49,7 +50,6 @@ class EventListener {
 				let isActive = target
 					.closest('.elementsList')
 					.classList.contains('active');
-
 				//console.log(isActive);
 				//On ferme toutes les listes ouvertes sauf celle qu'on click
 				document.querySelectorAll('.elementsList').forEach((element) => {
@@ -64,15 +64,12 @@ class EventListener {
 		});
 	}
 
-	//* recherche sur l'input à l'ouverture d une liste
-	//* affichage des elements selon recherche de l input
-
+//* recherche dans les listes
 	filterTag() {
 		// On ecoute sur la saisi au clavier
 		document.querySelector('#searchBtn').onkeyup = (e) => {
 			//ce qu'on inscrit dans l input
 			let inputHtml = e.target;
-	
 			// si ce qu'on ecoute est contenu dans la class
 			if (inputHtml.classList.contains('filterInputList')) {
 				// on recupere  les valeurs inscrites dans l input
@@ -98,37 +95,31 @@ class EventListener {
 		};
 	}
 
-	//* affichage du ou des tags selon recherche
-	
+//* affichage tags	
 	addTag() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
 			const target = e.target;
 			//console.log(target); // li
-
 			if (target.classList.contains('list-item')) {
 				const elementValue = target.innerHTML;
 				//console.log(elementValue);
-				let dataType = target.closest('.elementsList').dataset.type;
-
+				let dataType = target.closest('.elementsList').dataset.type
 				//console.log('elementsList');
 				let tagHtmlList = `
 				<li class="elementTag tag-${dataType}">${elementValue} <i class="far fa-times-circle tag"></i></li>`;
 				document.getElementById('tagList').innerHTML += tagHtmlList;
-
 				this.searchService.launch();
 			}
 		});
 	}
 
-	//* Close tag au click  sur le tag selectionné
-
+//* Close tag 
 	removeTag() {
 		document.querySelector('#tagList').addEventListener('click', (e) => {
 			const target = e.target;
 
 			if (target.classList.contains('tag')) {
 				target.closest('.elementTag').remove();
-
 				this.searchService.launch();
 			}
 		});

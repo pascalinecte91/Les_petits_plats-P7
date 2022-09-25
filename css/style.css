@@ -5,7 +5,6 @@ body {
   font-family: 'Roboto', sans-serif;
   width: 100vh;
   margin: 0rem 1rem;
-
 }
 
 :root {
@@ -33,7 +32,6 @@ main {
   justify-content: center;
   width: 76.5rem;
   margin-bottom: 1rem;
-
 }
 
 .header img {
@@ -123,7 +121,6 @@ figcaption.detail {
 }
 
 /*? SECTION Partie recherche Loupe*/
-
 #inputSearch {
   height: 70px;
   background-color: #E7E7E7;
@@ -208,6 +205,7 @@ button {
   opacity: 55%;
 }
 
+
 /*? modifie le placholder des listes dans l input */
 
 .filterInputList::-webkit-input-placeholder {
@@ -227,8 +225,7 @@ button {
   border-radius: 5px;
   font-size: 1.1rem;
   color: white;
-  position: relative;
- 
+  position: relative; 
 }
 
 /*** Affichage la liste des tags */
@@ -286,27 +283,34 @@ button {
 }
 
 /*! ***********   alerte message  search  ****/
+
 #resultSort {
   display: none;
-  justify-content: space-between;
-  align-items: center;
-  border: none;
-  background-color: var(--downCard);
-  width: 47.5rem;
-  margin: auto;
-  margin-bottom: 2rem;
   padding: 1rem;
-  border-radius: 0.25rem;
-  overflow: hidden;
   font-size: 1.1rem;
-  color: red
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  color: var(--orange);
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.0s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
 }
 
 /**********   TAGS *****************/
 
-
 #tagList {
-
   margin-top: 1.5rem;
   align-items: center;
   display: flex;

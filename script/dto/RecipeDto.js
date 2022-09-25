@@ -28,7 +28,6 @@ class RecipeDto {
 
 	isValidSearchInput(inputValue) {
 		let value = inputValue.toLowerCase();
-
 		let test = [...this.ingredients].filter((ingredient) => {
 			return ingredient.toLowerCase().includes(value);
 		});
@@ -44,8 +43,7 @@ class RecipeDto {
 		return arrayElement;
 	}
 
-	isInRecipe(selectedTags, recipeElements)
-	{
+	isInRecipe(selectedTags, recipeElements) {
 		let selectedTagsArray = this.convertObjectToArrayInLowerCase(selectedTags);
 		let recipeElementsArray = this.convertObjectToArrayInLowerCase(recipeElements);
 

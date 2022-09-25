@@ -5,6 +5,7 @@ class SearchParams {
 		this.appliances = new Set();
         this.input = document.getElementById('inputSearch').value;
 
+		//console.log(this);
 		Array.from(document.querySelectorAll('#tagList .tag-ingredients')).map((tagElement) => {
             this.ingredients.add(tagElement.innerText.trim())
 			//console.log(tagElement);
