@@ -25,16 +25,14 @@ class SearchService {
 			&& recipe.hasAppliances(this.searchParams.appliances)
 			) {
 				this.recipesRecovered.add(recipe);
-				//console.log(this.recipesRecovered);
-				
+				//console.log(this.recipesRecovered);	
 			}
 		});
 		// fin de recherche
 		this.searchResult = new SearchResult(this.recipesRecovered);
-		
 		this.cardRecipeBuilder.refreshCardSection(this.searchResult.recipes);
 		this.listBuilder.refreshListSection(this.searchResult, this.searchParams);
-		this.alertMessage.refresh(this.searchResult);
+		this.alertMessage.refresh(this.searchResult);		
 		//console.log(this.searchResult,this.recipesRecovered);
 	}
 }

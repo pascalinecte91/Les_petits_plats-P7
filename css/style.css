@@ -3,7 +3,7 @@
 body {
   font-family: 'Lato', sans-serif;
   font-family: 'Roboto', sans-serif;
-  width: 100vh;
+  width: 76.5rem;
   margin: 0rem 1rem;
 }
 
@@ -23,14 +23,13 @@ p {
 
 main {
   justify-content: space-around;
-  width: 76.5rem;
 }
 
 /*? ***********  SECTION  header ***********/
 .header {
   display: flex;
   justify-content: center;
-  width: 76.5rem;
+
   margin-bottom: 1rem;
 }
 
@@ -43,9 +42,11 @@ main {
 #recipesContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-around;  */
   flex-wrap: wrap;
-  margin-left: -1rem;
+  /* margin-left: -1rem; */
+  margin: 0px 18px 0px 0px;
+  gap: 36px;
 }
 
 .card-body {
@@ -108,6 +109,7 @@ figcaption.detail {
   -webkit-box-orient: vertical;
   margin-right: 5px;
 }
+
 .card-desc {
   width: 100%;
   display: -webkit-box;
@@ -116,8 +118,13 @@ figcaption.detail {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
+
 .card-body:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.figure{
+  margin: 0px 10px 0px 18px;
 }
 
 /*? SECTION Partie recherche Loupe*/
@@ -225,7 +232,7 @@ button {
   border-radius: 5px;
   font-size: 1.1rem;
   color: white;
-  position: relative; 
+  position: relative;
 }
 
 /*** Affichage la liste des tags */
@@ -288,24 +295,40 @@ button {
   display: none;
   padding: 1rem;
   font-size: 1.1rem;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  overflow: hidden;
   color: var(--orange);
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
     typing 3.0s steps(40, end),
     blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: orange;
+  }
+}
+
+.closed {
+  display: none;
 }
 
 /**********   TAGS *****************/
@@ -345,10 +368,10 @@ button {
   cursor: pointer;
 }
 
-.fa-chevron-up::before{
+.fa-chevron-up::before {
   position: absolute;
   right: 4%;
-  top:6%;
+  top: 6%;
 }
 
 .elementTag {
@@ -373,27 +396,30 @@ button {
 
 /**?    RESPONSIVE */
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {}
 
-}
 @media only screen and (min-width: 1288px) and (max-width: 1439.99) {
- 
+  body {
+    margin: 0rem 10rem;
+  }
+}
 
+/* 
 @media only screen and (min-width: 1024px) and (max-width: 1287.99) {
-  
+
 }
 @media only screen and (min-width: 768px) and (max-width: 1023.99) {
 
-}
+} */
 
 @media only screen and (min-width: 425px) and (max-width: 767.99) {
   .figure {
     margin: 0 10px 1rem;
-}
-#recipesContainer {
- margin-left: -2rem;
-  justify-content: space-around;
- 
-}
-}
+  }
+
+  #recipesContainer {
+    margin-left: -2rem;
+    justify-content: space-around;
+
+  }
 }

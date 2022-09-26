@@ -23,6 +23,7 @@ class EventListener {
 		this.filterTag();
 		this.addTag();
 		this.removeTag();
+		this.closedPopup();
 	}
 
 //* recherche  recette input loupe 
@@ -34,12 +35,22 @@ class EventListener {
 			if (searchValue.length >= 3) {
 			this.searchService.launch();
 			document.getElementById('resultSort').classList.add('showInput');
-			} else {
+			}  else {
 			document.getElementById('resultSort').classList.remove('showInput');
 			}	
-		})
-	};
+		});
+		
+	}
 
+	closedPopup(){
+		const closedPopup = document.querySelector('#resultSort');
+		closedPopup.addEventListener('click', () => {
+			document.getElementById('resultSort').classList.remove('showInput');
+			location.reload();
+		});
+		
+	}
+	
 //* click button OPEN  - CLOSED (toogle) de l'une des 3 listes click
 	toggleList() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
@@ -117,12 +128,12 @@ class EventListener {
 	removeTag() {
 		document.querySelector('#tagList').addEventListener('click', (e) => {
 			const target = e.target;
-
 			if (target.classList.contains('tag')) {
 				target.closest('.elementTag').remove();
 				this.searchService.launch();
 			}
 		});
+		
 	}
 }
 export default EventListener;
