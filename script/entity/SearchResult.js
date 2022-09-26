@@ -8,7 +8,7 @@ class SearchResult {
 		this.ingredients = new Set();
 		this.ustensils = new Set();
 		this.appliances = new Set();
-
+		
 		Array.from(recipesRecovered).map((recipe) => {
 			Array.from(recipe.ingredients).map((ingredient) => {
 				this.ingredients.add(ingredient.toLowerCase());

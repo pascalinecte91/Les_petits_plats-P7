@@ -2,7 +2,7 @@ class AlertMessage {
 	refresh(searchResult) {
 		let alertMessage = document.getElementById('resultSort');
 		let qteRecipe = [...searchResult.recipes].length;
-		console.log(searchResult);
+		//console.log(searchResult);
 
 		if (qteRecipe < 1) {
 			alertMessage.innerHTML =

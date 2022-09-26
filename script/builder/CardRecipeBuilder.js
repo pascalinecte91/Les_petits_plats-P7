@@ -5,11 +5,13 @@ class CardRecipeBuilder {
 			cardsHtml += this.getHtmlCard(recipe);
 		});
 		document.getElementById("recipesContainer").innerHTML = cardsHtml;
+		
 	}
 
 	getHtmlCard(recipe) {
 		// console.log(recipe);
 		let picture = "";
+		
 		picture = recipe.name.toLowerCase().replace(/ /g,'_');
 		const html = `
 	<figure class="card-figure">
