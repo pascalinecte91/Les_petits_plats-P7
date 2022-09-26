@@ -32,12 +32,13 @@ class EventListener {
 		let searchInput = e.target;
 		let searchValue = searchInput.value;
 			// Si plus grand  que 3 caractere
-			if (searchValue.length >= 3) {
 			this.searchService.launch();
+			if (searchValue.length >= 3) {
 			document.getElementById('resultSort').classList.add('showInput');
 			}  else {
 			document.getElementById('resultSort').classList.remove('showInput');
 			}	
+			
 		});
 		
 	}

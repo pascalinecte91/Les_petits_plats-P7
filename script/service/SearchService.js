@@ -32,8 +32,8 @@ class SearchService {
 		this.searchResult = new SearchResult(this.recipesRecovered);
 		this.cardRecipeBuilder.refreshCardSection(this.searchResult.recipes);
 		this.listBuilder.refreshListSection(this.searchResult, this.searchParams);
+		
 		this.alertMessage.refresh(this.searchResult);		
-		//console.log(this.searchResult,this.recipesRecovered);
 	}
 }
 export default SearchService;
