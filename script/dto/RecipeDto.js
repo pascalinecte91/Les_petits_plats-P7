@@ -1,7 +1,11 @@
+/**
+ *?  recipeData = toutes  les recipes = 
+ *?  console.log(recipeData.ustensils) = tous les ustensils des recettes
+ */
+
 class RecipeDto {
 	constructor(recipeData) {
-		//console.log(recipeData.ustensils);
-		//? toutes  les recipes = recipeData
+		
 		this.recipeData = recipeData;
 		this.name = recipeData.name;
 		this.servings = recipeData.servings;
@@ -11,14 +15,12 @@ class RecipeDto {
 		this.appliances = new Set();
 		this.ingredients = new Set();
 		this.ingredientsData = new Set();
-
 		recipeData.ingredients.map((data) => {
 			this.ingredientsData.add(data);
 			this.ingredients.add(data.ingredient);
 		});
-
+		//console.log(this.ingredientsData);
 		recipeData.ustensils.map((ustensil) => {
-			//console.log(recipeData.ustensils);
 			this.ustensils.add(ustensil);
 		});
 
@@ -27,27 +29,38 @@ class RecipeDto {
 	}
 
 	isValidSearchInput(inputValue) {
+		
 		let value = inputValue.toLowerCase();
 		let searchFilter = [...this.ingredients].filter((ingredient) => {
 			return ingredient.toLowerCase().includes(value);
+			
 		});
-		return this.name.toLowerCase().includes(value) || 
-		this.description.toLowerCase().includes(value) 
-		
+		return this.name.toLowerCase().includes(value) ||
+			this.description.toLowerCase().includes(value);
 	}
 
 	convertObjectToArrayInLowerCase(objectSet) {
 		let arrayElement = Array.from(objectSet).map((element) => {
-			return element.toLowerCase();
+			return element.toLowerCase().normalizer;
 		});
 		return arrayElement;
 	}
 
+	// normalizer(string) {
+	// 	return string
+	// 	.replace(/[\u0300-\u036f]/g, "")
+	// 	.replace(/[.,!;:?]/g,"");
+	// 	console.log(normalizer);
+	// }
+
 	isInRecipe(selectedTags, recipeElements) {
 		let selectedTagsArray = this.convertObjectToArrayInLowerCase(selectedTags);
-		let recipeElementsArray = this.convertObjectToArrayInLowerCase(recipeElements);
+		let recipeElementsArray =
+			this.convertObjectToArrayInLowerCase(recipeElements);
 
-		return selectedTagsArray.every((selectedTag) => recipeElementsArray.includes(selectedTag));
+		return selectedTagsArray.every((selectedTag) =>
+			recipeElementsArray.includes(selectedTag)
+		);
 	}
 
 	hasIngredients(selectedTags) {
@@ -62,5 +75,4 @@ class RecipeDto {
 		return this.isInRecipe(selectedTags, this.appliances);
 	}
 }
-
 export default RecipeDto;

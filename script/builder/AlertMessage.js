@@ -3,7 +3,6 @@ class AlertMessage {
 		let alertMessage = document.getElementById('resultSort');
 		let qteRecipe = [...searchResult.recipes].length;
 		//console.log(searchResult);
-
 		if (qteRecipe < 1) {
 			alertMessage.innerHTML =
 				'Aucune "recette" ne correspond, veuillez recommencer !';
@@ -14,5 +13,4 @@ class AlertMessage {
 		}
 	}
 }
-
 export default AlertMessage;

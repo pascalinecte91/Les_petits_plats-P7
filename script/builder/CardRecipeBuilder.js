@@ -1,18 +1,17 @@
 class CardRecipeBuilder {
 	refreshCardSection(recipes) {
-		let cardsHtml = "";
+		let cardsHtml = '';
 		Array.from(recipes).map((recipe) => {
 			cardsHtml += this.getHtmlCard(recipe);
 		});
-		document.getElementById("recipesContainer").innerHTML = cardsHtml;
-		
+		document.getElementById('recipesContainer').innerHTML = cardsHtml;
 	}
 
 	getHtmlCard(recipe) {
 		// console.log(recipe);
-		let picture = "";
-		
-		picture = recipe.name.toLowerCase().replace(/ /g,'_');
+		let picture = '';
+
+		picture = recipe.name.toLowerCase().replace(/ /g, '_');
 		const html = `
 	<figure class="card-figure">
 		<div class="card-body">
@@ -36,14 +35,14 @@ class CardRecipeBuilder {
 	}
 
 	ingredientHtml(recipe) {
-		let htmlContent = "";
+		let htmlContent = '';
 		// console.log(recipe.ingredients);
 		for (const ingredient of recipe.ingredientsData) {
 			const ingredientQuantity = ingredient.quantity
 				? ingredient.unit
 					? `:&nbsp;${ingredient.quantity}&nbsp;${ingredient.unit}`
 					: `:&nbsp;${ingredient.quantity}`
-				: "";
+				: '';
 			htmlContent += `<p><strong>${ingredient.ingredient}</strong>${ingredientQuantity}</p>`;
 		}
 		return htmlContent;

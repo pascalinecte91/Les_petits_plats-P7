@@ -123,7 +123,7 @@ figcaption.detail {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.figure{
+.figure {
   margin: 0px 10px 0px 18px;
 }
 
@@ -392,34 +392,28 @@ button {
   background-color: var(--orange);
 }
 
-
-
 /**?    RESPONSIVE */
 
-@media only screen and (min-width: 1440px) {}
+@media  screen and (min-width: 1440px) {}
 
-@media only screen and (min-width: 1288px) and (max-width: 1439.99) {
+@media  screen and (min-width: 1288px) and (max-width: 1439.99px) {
   body {
     margin: 0rem 10rem;
   }
 }
 
-/* 
-@media only screen and (min-width: 1024px) and (max-width: 1287.99) {
-
-}
-@media only screen and (min-width: 768px) and (max-width: 1023.99) {
-
-} */
-
-@media only screen and (min-width: 425px) and (max-width: 767.99) {
+@media screen and (min-width: 425px) and (max-width: 767.99px) {
   .figure {
     margin: 0 10px 1rem;
   }
 
   #recipesContainer {
-    margin-left: -2rem;
     justify-content: space-around;
-
   }
+
+  /* @media screen and (min-width: 200px) and (max-width: 424.99px) {
+    .listTags {
+      grid-template-columns: 1fr 1fr;
+    }
+  } */
 }
