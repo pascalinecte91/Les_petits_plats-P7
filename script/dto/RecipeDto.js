@@ -14,14 +14,17 @@ class RecipeDto {
 		this.ustensils = new Set();
 		this.appliances = new Set();
 		this.ingredients = new Set();
-		this.ingredientsData = new Set();
+		this.ingredientsData = new Set();  // collection
+
 		recipeData.ingredients.map((data) => {
 			this.ingredientsData.add(data);
 			this.ingredients.add(data.ingredient);
+			
 		});
-		//console.log(this.ingredientsData);
+		
 		recipeData.ustensils.map((ustensil) => {
 			this.ustensils.add(ustensil);
+			
 		});
 
 		// les appliances = string
@@ -29,34 +32,33 @@ class RecipeDto {
 	}
 
 	isValidSearchInput(inputValue) {
-		
 		let value = inputValue.toLowerCase();
 		let searchFilter = [...this.ingredients].filter((ingredient) => {
 			return ingredient.toLowerCase().includes(value);
-			
 		});
 		return this.name.toLowerCase().includes(value) ||
 			this.description.toLowerCase().includes(value);
+			
 	}
 
 	convertObjectToArrayInLowerCase(objectSet) {
 		let arrayElement = Array.from(objectSet).map((element) => {
-			return element.toLowerCase().normalizer;
+			return element.toLowerCase();
 		});
 		return arrayElement;
 	}
 
-	// normalizer(string) {
-	// 	return string
-	// 	.replace(/[\u0300-\u036f]/g, "")
-	// 	.replace(/[.,!;:?]/g,"");
-	// 	console.log(normalizer);
+	// replaceSpecialChars(str) {
+	// 	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')// Remove accents
+	// 	.replace(/([^\w]+|\s+)/g, '-') // Replace space and other characters by hyphen
+	// 	.replace(/\-\-+/g, '-')	// Replaces multiple hyphens by one hyphen
+	// 	.replace(/(^-+|-+$)/g, '') // Remove extra hyphens from beginning or end of the string
 	// }
+	
 
 	isInRecipe(selectedTags, recipeElements) {
 		let selectedTagsArray = this.convertObjectToArrayInLowerCase(selectedTags);
-		let recipeElementsArray =
-			this.convertObjectToArrayInLowerCase(recipeElements);
+		let recipeElementsArray = this.convertObjectToArrayInLowerCase(recipeElements);
 
 		return selectedTagsArray.every((selectedTag) =>
 			recipeElementsArray.includes(selectedTag)

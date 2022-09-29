@@ -64,7 +64,7 @@ main {
   width: 380px;
   height: 178px;
   object-fit: cover;
-  object-position: 60% 15%;
+  object-position: 60% 30%;
 }
 
 /*!  titre  info  title  ********/
@@ -194,6 +194,7 @@ button {
   max-height: 24.81rem;
   border-radius: 5px;
   font-size: 1.1rem;
+  overflow-y: scroll;
 }
 
 .tags {
@@ -340,6 +341,12 @@ button {
   flex-wrap: wrap;
 }
 
+li.list-item {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .tagContent {
   display: flex;
   align-content: center;
@@ -394,26 +401,34 @@ button {
 
 /**?    RESPONSIVE */
 
-@media  screen and (min-width: 1440px) {}
+@media screen and (min-width: 1440px) {}
 
-@media  screen and (min-width: 1288px) and (max-width: 1439.99px) {
+@media screen and (min-width: 1288px) and (max-width: 1439.99px) {
   body {
     margin: 0rem 10rem;
+    
   }
 }
 
 @media screen and (min-width: 425px) and (max-width: 767.99px) {
-  .figure {
-    margin: 0 10px 1rem;
-  }
 
   #recipesContainer {
     justify-content: space-around;
   }
+}
 
-  /* @media screen and (min-width: 200px) and (max-width: 424.99px) {
-    .listTags {
-      grid-template-columns: 1fr 1fr;
-    }
-  } */
+@media screen and (min-width: 275px) and (max-width: 424.99px) {
+
+  main {
+    flex-direction: column;
+  }
+
+  .toggleList {
+    width: 99%;
+  }
+
+ .fas.toggleList {
+  left:42%;
+  position: relative;
+}
 }
