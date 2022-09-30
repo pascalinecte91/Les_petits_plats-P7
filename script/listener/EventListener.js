@@ -16,7 +16,6 @@ class EventListener {
 	constructor(searchService) {
 		this.searchService = searchService;
 	}
-
 	listen() {
 		this.searchGlassList();
 		this.toggleList();
@@ -32,12 +31,15 @@ class EventListener {
 			let searchInput = e.target;
 			let searchValue = searchInput.value;
 			// Si plus grand  que 3 caractere
-			this.searchService.launch();
+			
 			if (searchValue.length >= 3) {
+				this.searchService.launch();
 				document.getElementById('resultSort').classList.add('showInput');
 			} else {
 				document.getElementById('resultSort').classList.remove('showInput');
+		
 			}
+			
 		});
 	}
 

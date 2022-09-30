@@ -5,7 +5,7 @@ class AlertMessage {
 		//console.log(searchResult);
 		if (qteRecipe < 1) {
 			alertMessage.innerHTML =
-				'Aucune "recette" ne correspond, veuillez recommencer !';
+			'Aucune "recette" ne correspond, veuillez recommencer !';
 		} else {
 			alertMessage.innerHTML = `Nous avons trouvé ${qteRecipe}  recette${
 				qteRecipe > 1 ? 's' : ''
@@ -13,4 +13,5 @@ class AlertMessage {
 		}
 	}
 }
+
 export default AlertMessage;

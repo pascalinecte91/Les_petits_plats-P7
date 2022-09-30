@@ -23,6 +23,8 @@ class SearchResult {
 				//console.log(appliance);
 			});
 		});
+		
 	}
+	
 }
 export default SearchResult;

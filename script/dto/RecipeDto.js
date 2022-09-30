@@ -1,3 +1,6 @@
+
+import { replaceSpecialChars } from './../service/utils.js';
+
 /**
  *?  recipeData = toutes  les recipes = 
  *?  console.log(recipeData.ustensils) = tous les ustensils des recettes
@@ -16,30 +19,32 @@ class RecipeDto {
 		this.ingredients = new Set();
 		this.ingredientsData = new Set();  // collection
 
-		recipeData.ingredients.map((data) => {
+		recipeData.ingredients.map((data) => { // collection d'ingredients
 			this.ingredientsData.add(data);
 			this.ingredients.add(data.ingredient);
-			
 		});
 		
 		recipeData.ustensils.map((ustensil) => {
 			this.ustensils.add(ustensil);
-			
 		});
-
 		// les appliances = string
 		this.appliances.add(recipeData.appliance);
 	}
 
 	isValidSearchInput(inputValue) {
 		let value = inputValue.toLowerCase();
+		let valueEscape = replaceSpecialChars(value);
+		//console.log(valueEscape);
+		// si , filtre dans le [des ingred]
 		let searchFilter = [...this.ingredients].filter((ingredient) => {
-			return ingredient.toLowerCase().includes(value);
+			return (replaceSpecialChars(ingredient.toLowerCase())).includes(value);
 		});
-		return this.name.toLowerCase().includes(value) ||
-			this.description.toLowerCase().includes(value);
-			
-	}
+		let existInIngredients = searchFilter.length > 0;
+
+		return existInIngredients ||
+		replaceSpecialChars(this.name.toLowerCase()).includes(valueEscape) ||
+		replaceSpecialChars(this.description.toLowerCase()).includes(valueEscape);
+		}
 
 	convertObjectToArrayInLowerCase(objectSet) {
 		let arrayElement = Array.from(objectSet).map((element) => {
@@ -47,15 +52,8 @@ class RecipeDto {
 		});
 		return arrayElement;
 	}
-
-	// replaceSpecialChars(str) {
-	// 	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')// Remove accents
-	// 	.replace(/([^\w]+|\s+)/g, '-') // Replace space and other characters by hyphen
-	// 	.replace(/\-\-+/g, '-')	// Replaces multiple hyphens by one hyphen
-	// 	.replace(/(^-+|-+$)/g, '') // Remove extra hyphens from beginning or end of the string
-	// }
 	
-
+	
 	isInRecipe(selectedTags, recipeElements) {
 		let selectedTagsArray = this.convertObjectToArrayInLowerCase(selectedTags);
 		let recipeElementsArray = this.convertObjectToArrayInLowerCase(recipeElements);
@@ -76,5 +74,6 @@ class RecipeDto {
 	hasAppliances(selectedTags) {
 		return this.isInRecipe(selectedTags, this.appliances);
 	}
+
 }
 export default RecipeDto;

@@ -5,6 +5,7 @@ class SearchParams {
 		this.appliances = new Set();
 		this.input = document.getElementById('inputSearch').value;
 
+	
 		//console.log(this);
 		Array.from(document.querySelectorAll('#tagList .tag-ingredients')).map(
 			(tagElement) => {
@@ -26,6 +27,14 @@ class SearchParams {
 				//console.log(tagElement);
 			}
 		);
+	}
+
+	isValid() { 
+		//console.log(this.ingredients, this.ingredients.size);
+		return (this.ingredients.size > 0 ) ||
+			(this.ustensils.size > 0 ) ||
+			(this.appliances.size > 0 ) ||
+			(this.input.trim() != '');
 	}
 }
 
