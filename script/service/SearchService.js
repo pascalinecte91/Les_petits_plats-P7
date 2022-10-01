@@ -25,26 +25,26 @@ class SearchService {
 	launch() {
 		this.recipesRecovered = new Set();
 		this.searchParams = new SearchParams();
-	
+		// debut de recherche
 		if (this.searchParams.isValid()) {
 			Array.from(this.recipes).map((recipe) => {
 				//array d 'object (3)
-				let isRecovered = recipe.isValidSearchInput(this.searchParams.input)
-				&& recipe.hasIngredients(this.searchParams.ingredients) 
-				if (isRecovered){
-					this.recipesRecovered.add(recipe);	
+				let isRecovered =
+					recipe.isValidSearchInput(this.searchParams.input) &&
+					recipe.hasIngredients(this.searchParams.ingredients);
+				if (isRecovered) {
+					this.recipesRecovered.add(recipe);
 				}
 			});
 		} else {
 			this.recipesRecovered = this.recipes;
 		}
-		// debut de recherche
-		
+
 		// fin de recherche
 		this.searchResult = new SearchResult(this.recipesRecovered);
 		this.cardRecipeBuilder.refreshCardSection(this.recipesRecovered);
 		this.listBuilder.refreshListSection(this.searchResult, this.searchParams);
-		this.alertMessage.refresh(this.searchResult);	
+		this.alertMessage.refresh(this.searchResult);
 	}
 	
 }
