@@ -14,7 +14,6 @@ class CardRecipeBuilder {
 		picture = recipe.name.toLowerCase().replace(/ /g, '_');
 		const html = `
 	<figure class="card-figure">
-		<div class="card-body">
 			<img src="./assets/images/${picture}.jpg" alt="gallery" class="media-recipe">
 				<div class="card-info">
 					<h3 class="card-title">${recipe.name}</h3>
@@ -29,7 +28,7 @@ class CardRecipeBuilder {
 					<div class="card-desc">${recipe.description}
 					</div>
 				</figcaption>
-		</div>
+		
 	</figure>`;
 		return html;
 	}

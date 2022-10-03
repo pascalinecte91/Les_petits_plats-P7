@@ -1,3 +1,6 @@
+
+import { replaceSpecialChars } from './../service/utils.js';
+
 class ListBuilder {
 	refreshListSection(searchResult, searchParams) {
 		document.getElementById('ingredientsList').innerHTML = this.getHtmlList(
@@ -31,7 +34,7 @@ class ListBuilder {
 					<input type="text" class="filterInputList" placeholder="recherchez un ${name}">
 					<i class="fas fa-chevron-up chevronDown toggleList"></i>
 				</div>
-				<ul class="listTags">${this.listElements(elements, selectedTags)}</ul>
+				<ul class="listTags">${this.listElements(elements,selectedTags)}</ul>
 			</div>
 		</div>
 		`;

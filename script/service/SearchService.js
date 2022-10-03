@@ -5,7 +5,6 @@ import SearchParams from './SearchParams.js';
 import AlertMessage from './../builder/AlertMessage.js';
 import { replaceSpecialChars } from './utils.js';
 
-
 class SearchService {
 	constructor(recipes) {
 		this.recipes = recipes;
@@ -14,12 +13,11 @@ class SearchService {
 		this.alertMessage = new AlertMessage();
 
 		// if (this.input.length >= 3) {
-				
+
 		// document.getElementById('resultSort').classList.add('showInput');
 		// } else {
 		// document.getElementById('resultSort').classList.remove('showInput');
 		// }
-
 	}
 
 	launch() {
@@ -46,6 +44,5 @@ class SearchService {
 		this.listBuilder.refreshListSection(this.searchResult, this.searchParams);
 		this.alertMessage.refresh(this.searchResult);
 	}
-	
 }
 export default SearchService;

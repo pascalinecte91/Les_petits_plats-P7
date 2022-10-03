@@ -29,6 +29,7 @@ class RecipeDto {
 		});
 		// les appliances = string
 		this.appliances.add(recipeData.appliance);
+	
 	}
 
 	isValidSearchInput(inputValue) {

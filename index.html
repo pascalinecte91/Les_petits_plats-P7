@@ -16,11 +16,14 @@
 		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
 		crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/0bfe0e9acc.js" crossorigin="anonymous"></script>
-
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/desktop.css"
+        media="only screen and (min-width: 768px) and (max-width: 1287.99px)">
+	<link rel="stylesheet" href="./css/mobile.css" media="only screen and (max-width: 767.99px)">
 </head>
 
 <body>
+	<div class="container-site">
 	<!--          LOGO            -->
 	<section class="header">
 		<img src="assets/logo.jpg" alt="logo">
@@ -35,7 +38,7 @@
 		<!--    SEARCH   INPUT RECIPES   -->
 		<section id="search">
 			<div class="loupe">
-				<input type="text" id="inputSearch" class="loupe" placeholder="Recherchez une recette">
+				<input type="text" id="inputSearch" class="loupe" placeholder="Recherchez une recette ou des ingrédients, ustensils, appareils">
 				<div class="icon">
 					<img src="assets/loupe.png" class="glass" alt="loupe">
 				</div>
@@ -59,7 +62,7 @@
 		<!--  RECIPES     -->
 		<section id="recipesContainer">
 		</section>
-
+</div>
 		<script type="module" src="./app.js"></script>
 		<script type="module" src="./script/builder/CardRecipeBuilder.js"></script>
 		<script type="module" src="./script/builder/ListBuilder.js"></script>

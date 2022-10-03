@@ -1,5 +1,6 @@
-/**
- *? class qui retourne sous forme d' Objet Set
+/*
+ ** array.from  fait un tableau à partir d'un objet iterable
+ ** met les ingredients ou ustensils ou appl
  */
 
 class SearchResult {
@@ -12,7 +13,6 @@ class SearchResult {
 		Array.from(recipesRecovered).map((recipe) => {
 			Array.from(recipe.ingredients).map((ingredient) => {
 				this.ingredients.add(ingredient);
-				//console.log(ingredient);
 			});
 			Array.from(recipe.ustensils).map((ustensil) => {
 				this.ustensils.add(ustensil);
