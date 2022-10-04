@@ -8,9 +8,7 @@ class CardRecipeBuilder {
 	}
 
 	getHtmlCard(recipe) {
-		// console.log(recipe);
 		let picture = '';
-
 		picture = recipe.name.toLowerCase().replace(/ /g, '_');
 		const html = `
 	<figure class="card-figure">
@@ -28,7 +26,6 @@ class CardRecipeBuilder {
 					<div class="card-desc">${recipe.description}
 					</div>
 				</figcaption>
-		
 	</figure>`;
 		return html;
 	}

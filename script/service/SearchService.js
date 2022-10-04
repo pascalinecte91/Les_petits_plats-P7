@@ -11,7 +11,7 @@ class SearchService {
 		this.cardRecipeBuilder = new CardRecipeBuilder();
 		this.listBuilder = new ListBuilder();
 		this.alertMessage = new AlertMessage();
-
+console.log(this);
 		// if (this.input.length >= 3) {
 
 		// document.getElementById('resultSort').classList.add('showInput');
@@ -29,7 +29,9 @@ class SearchService {
 				//array d 'object (3)
 				let isRecovered =
 					recipe.isValidSearchInput(this.searchParams.input) &&
-					recipe.hasIngredients(this.searchParams.ingredients);
+					recipe.hasIngredients(this.searchParams.ingredients) &&
+					recipe.hasUstensils(this.searchParams.ustensils) &&
+					recipe.hasAppliances(this.searchParams.appliances);
 				if (isRecovered) {
 					this.recipesRecovered.add(recipe);
 				}
@@ -43,6 +45,7 @@ class SearchService {
 		this.cardRecipeBuilder.refreshCardSection(this.recipesRecovered);
 		this.listBuilder.refreshListSection(this.searchResult, this.searchParams);
 		this.alertMessage.refresh(this.searchResult);
+		
 	}
 }
 export default SearchService;

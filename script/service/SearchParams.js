@@ -30,7 +30,7 @@ class SearchParams {
 	}
 
 	isValid() {
-		//console.log(this.ingredients.size);
+		console.log(this.ingredients.size);
 		return (
 			this.ingredients.size > 0 ||
 			this.ustensils.size > 0 ||

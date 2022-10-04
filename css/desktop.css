@@ -3,7 +3,10 @@
 		width: 16.5rem;
 		height: 19rem;
 	}
-
+#recipesContainer {
+	gap:9px;
+	justify-content: space-evenly;
+}
 	button {
 		height: 3rem;
 	}
