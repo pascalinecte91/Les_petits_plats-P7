@@ -28,7 +28,9 @@ Cas utilisations :
 
 - <https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P6+Algorithms/Cas+d%E2%80%99utilisation+%2303+Filtrer+les+recettes+dans+l%E2%80%99interface+utilisateur.pdf>
 
-Fiche d'investigation de fonctionnalité : ( modèle transmis)
+Fiche d'investigation de fonctionnalité.
+
+Fonctionnalité App
 ![algo](./docs/Fonctionnalit%C3%A9s_app.jpg)
 
 

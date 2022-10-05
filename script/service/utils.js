@@ -1,4 +1,5 @@
 export function replaceSpecialChars(str) {
+	
     return str
 			.replace(/[.,;:!?*"()°]/g, '')
 			.replace(/[']/g, ' ')
@@ -9,4 +10,5 @@ export function replaceSpecialChars(str) {
 			.replace(/[ôö]/g, 'o')
 			.replace(/[\u0300-\u036f]/g, '')
 			.replace(/[ùûû]/g, 'u');
+
 }

@@ -9,34 +9,30 @@ class SearchParams {
 		Array.from(document.querySelectorAll('#tagList .tag-ingredients')).map(
 			(tagElement) => {
 				this.ingredients.add(tagElement.innerText.trim());
-				//console.log(tagElement);
+				//console.log('exemple d\'un TAG ingredient (li) =', tagElement);
 			}
 		);
-
 		Array.from(document.querySelectorAll('#tagList .tag-ustensils')).map(
 			(tagElement) => {
 				this.ustensils.add(tagElement.innerText.trim());
-				//console.log(tagElement);
 			}
 		);
-
 		Array.from(document.querySelectorAll('#tagList .tag-appliances')).map(
 			(tagElement) => {
-				console.log(tagElement);
 				this.appliances.add(tagElement.innerText.trim());
-				//console.log(tagElement);
 			}
 		);
 	}
 
 	isValid() {
-		console.log(this.ingredients.size);
+		//console.log('nombre = d elements dans l\'objet SET:',this.ingredients.size);
 		return (
 			this.ingredients.size > 0 ||
 			this.ustensils.size > 0 ||
 			this.appliances.size > 0 ||
 			this.input.trim() != ''
 		);
+		
 	}
 }
 

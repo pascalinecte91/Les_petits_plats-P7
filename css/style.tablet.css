@@ -1,0 +1,43 @@
+/** 758 à 1023.99  */
+
+.card-figure {
+	width: 18.5rem;
+	height: 19rem;
+}
+
+#recipesContainer {
+	gap: 9px;
+	justify-content: space-between;
+}
+
+button {
+	height: 3rem;
+}
+
+#searchBtn {
+	gap: inherit;
+}
+#inputSearch {
+	width: 80%;
+}
+
+.media-recipe {
+	width: 18.5rem;
+	height: 150px;
+	border-radius: 5px 5px 0px 0px;
+}
+.card-info {
+	font-size: inherit;
+	margin-top: 0.5rem;
+}
+.card-title {
+	font-size: 0.9rem;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: horizontal;
+}
+
+.listTags {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1.8rem;
+    font-size: 1rem;
+}

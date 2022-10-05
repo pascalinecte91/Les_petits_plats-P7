@@ -1,0 +1,50 @@
+#recipesContainer {
+	gap: 0px;
+}
+
+.fa-chevron-down {
+	padding-left: 5px;
+}
+
+#inputSearch {
+	font-size: 14px;
+}
+
+.glass {
+	width: 30px;
+	height: 30px;
+	position: relative;
+}
+
+.icon {
+	top: 1.4rem;
+}
+
+.card-figure {
+	width: 18.5rem;
+	height: 21rem;
+}
+
+.media-recipe {
+	width: 18.5rem;
+	height: 178px;
+}
+
+.card-info {
+	font-size: 1rem;
+	margin-top: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.card-title {
+	font-size: 1rem;
+}
+
+.alertMessage.closed {
+	padding: 0px;
+}
+
+button {
+	min-width: 7rem;
+}

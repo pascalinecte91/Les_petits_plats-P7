@@ -1,0 +1,64 @@
+.card-figure {
+	width: 100%;
+	flex-direction: column;
+}
+
+.media-recipe {
+	width: 100%;
+}
+
+main {
+	margin-right: 0.5rem;
+	padding: 2rem 2%;
+}
+
+button {
+	display: flex;
+	width: 100%;
+}
+
+#searchBtn {
+	flex-direction: column;
+}
+
+.container-site {
+	padding: 2%;
+}
+
+.loupe {
+	margin-right: 1%;
+}
+
+.glass {
+	width: 25px;
+	height: 25px;
+	position: relative;
+}
+
+.icon {
+	top: 1.4rem;
+}
+
+#inputSearch {
+	font-size: 13px;
+	width: 85%;
+}
+
+#recipesContainer {
+	gap: 0px;
+	margin-right: 0px;
+}
+
+#resultSort {
+	white-space: inherit;
+	font-size: 0.8rem;
+}
+.listTags {
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: 1.8rem;
+	font-size: 1rem;
+}
+
+button {
+    height: 3rem;
+}

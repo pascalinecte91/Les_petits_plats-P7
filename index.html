@@ -17,58 +17,65 @@
 		crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/0bfe0e9acc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" type="text/css" href="./css/desktop.css"
-        media="only screen and (min-width: 768px) and (max-width: 1287.99px)">
-	<link rel="stylesheet" href="./css/mobile.css" media="only screen and (max-width: 767.99px)">
+	<link rel="stylesheet" href="./css/style.tablet.css"
+        media="only screen and (min-width: 768px) and (max-width: 1023.98px)">
+	<link rel="stylesheet" href="./css/style.mobile.large.css"
+        media="only screen and (min-width: 525px) and (max-width: 767.98px)">
+	 <link rel="stylesheet" type="text/css" href="./css/style.mobile.small.css"
+        media="only screen and (max-width: 524.98px)">
 </head>
 
 <body>
 	<div class="container-site">
-	<!--          LOGO            -->
-	<section class="header">
-		<img src="assets/logo.jpg" alt="logo">
-	</section>
-	<main>
-		<!--          ALERTE MESSAGE   RECHERCHES    -->
-		<section id="resultSort" class="alertMessage closed">
-			<div id="sortMsg" class="msg"></div>
-			<i class="far fa-times-circle tag"></i>
+		<!--          LOGO            -->
+		<section class="header">
+			<img src="assets/logo.jpg" alt="logo">
 		</section>
+		<main>
+			<!--          ALERTE MESSAGE   RECHERCHES    -->
+			<section id="resultSort" class="alertMessage closed">
+				<div id="sortMsg" class="msg">
 
-		<!--    SEARCH   INPUT RECIPES   -->
-		<section id="search">
-			<div class="loupe">
-				<input type="text" id="inputSearch" class="loupe" placeholder="Recherchez une recette, ingrédients, ustensils, appareils !">
-				<div class="icon">
-					<img src="assets/loupe.png" class="glass" alt="loupe">
 				</div>
+			</section>
+
+			<!--    SEARCH   INPUT RECIPES   -->
+			<section id="search">
+				<div class="loupe">
+					<input type="text" id="inputSearch" class="loupe"
+						placeholder="Recherchez une recette, ingrédients, ustensils, appareils !">
+					<div class="icon">
+						<img src="assets/loupe.png" class="glass" alt="loupe">
+					</div>
+				</div>
+			</section>
+
+			<!--   BADGES DES RECHERCHES CIBLEES-->
+
+			<div class="tagContent" id="tagList">
+				<div id="tagListWrapper"></div>
 			</div>
-		</section>
 
-		<!--   BADGES DES RECHERCHES CIBLEES-->
+			<!--    NAVIGATION  - SORT - BUTTON   -->
 
-		<div class="tagContent" id="tagList">
-			<div id="tagListWrapper"></div>
-		</div>
+			<section id="searchBtn">
+				<div id="ingredientsList" class="elementsList blue" data-type="ingredients"></div>
+				<div id="ustensilsList" class="elementsList green" data-type="ustensils"></div>
+				<div id="appliancesList" class="elementsList orange" data-type="appliances"></div>
+			</section>
 
-		<!--    NAVIGATION  - SORT - BUTTON   -->
-
-		<section id="searchBtn">
-			<div id="ingredientsList" class="elementsList blue" data-type="ingredients"></div>
-			<div id="ustensilsList" class="elementsList green" data-type="ustensils"></div>
-			<div id="appliancesList" class="elementsList orange" data-type="appliances"></div>
-		</section>
-
-		<!--  RECIPES     -->
-		<section id="recipesContainer">
-		</section>
-</div>
-		<script type="module" src="./app.js"></script>
-		<script type="module" src="./script/builder/CardRecipeBuilder.js"></script>
-		<script type="module" src="./script/builder/ListBuilder.js"></script>
-		<script type="module" src="./script/builder/AlertMessage.js"></script>
-		<script type="module" src="./script/listener/EventListener.js"></script>
-		<script type="module" src="./script/service/utils.js"></script>
-	</main>
+			<!--  RECIPES     -->
+			<section id="recipesContainer">
+			</section>
+		</main>
+	</div>
+	<script type="module" src="./app.js"></script>
+	<script type="module" src="./script/builder/CardRecipeBuilder.js"></script>
+	<script type="module" src="./script/builder/ListBuilder.js"></script>
+	<script type="module" src="./script/builder/AlertMessage.js"></script>
+	<script type="module" src="./script/listener/EventListener.js"></script>
+	<script type="module" src="./script/service/utils.js"></script>
+	
 </body>
+
 </html>

@@ -29,6 +29,7 @@ p {
 
 main {
 	justify-content: space-around;
+	padding: 2rem 5%;
 }
 
 /*? ***********  SECTION  header ***********/
@@ -49,7 +50,7 @@ main {
 	display: flex;
 	flex-direction: row;
 	-webkit-box-pack: center;
-	justify-content: center;
+	justify-content: space-between;
 	flex-wrap: wrap;
 	margin: 0px 18px 0px 0px;
 	gap: 36px;
@@ -59,8 +60,8 @@ main {
 	flex-direction: row;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	margin-top: 1rem;
-	width: 23.5rem;
-	height: 22.5rem;
+	width: 23.75rem;
+	height: 22.75rem;
 	background-color: var(--downCard);
 	border-radius: 5px;
 	transform: translateY(3px) scale(1);
@@ -68,11 +69,11 @@ main {
 
 /*!   image de la recette *****/
 .media-recipe {
-	width: 380px;
-	height: 178px;
+	width: 23.75rem;
+	height: 11.125rem;
 	object-fit: cover;
 	object-position: 60% 30%;
-	border-radius: 5px;
+	border-radius: 5px 5px 0px 0px;
 }
 
 /*!  titre  info  title  ********/
@@ -89,10 +90,11 @@ span {
 }
 
 .card-title {
-	font-size: 1.3rem;
+	font-family: 'lato';
+	font-size: 1.125rem;
 	font-weight: 700;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
+	margin-left: 0.4rem;
+	padding-right: 0.4rem;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
@@ -129,7 +131,7 @@ figcaption.detail {
 
 .card-figure:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-		transition-duration: 300ms;
+	transition-duration: 300ms;
 }
 
 .figure {
@@ -228,6 +230,7 @@ button {
 .loupe.placeholder {
 	overflow: visible;
 }
+
 /*? modifie le placeholder des listes dans l input */
 
 .filterInputList::-webkit-input-placeholder {
@@ -305,18 +308,17 @@ button {
 }
 
 /*! ***********   alerte message  search  ****/
-
 #resultSort {
 	display: none;
 	font-size: 1rem;
 	overflow: hidden;
 	color: var(--orange);
 	white-space: nowrap;
-	margin: 0 auto;
-	letter-spacing: 0.15em;
-	animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+	margin: 0.5rem auto;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	animation: typing 5s steps(40, end), blink-caret 0.05s step-end infinite;
 }
-
 @keyframes typing {
 	from {
 		width: 0;
@@ -326,7 +328,6 @@ button {
 		width: 100%;
 	}
 }
-
 @keyframes blink-caret {
 	from,
 	to {
@@ -341,9 +342,7 @@ button {
 .closed {
 	display: none;
 }
-
 /**********   TAGS *****************/
-
 #tagList {
 	margin-top: 1.5rem;
 	align-items: center;
@@ -383,12 +382,24 @@ li.list-item {
 
 .fa-times-circle.tag {
 	cursor: pointer;
+	padding-left: 1rem;
+}
+
+.fa-times-circle.tagMsg {
+	cursor: pointer;
+	color: var(--orange);
+	padding-left: 0.5rem;
+	margin-top: 4px;
 }
 
 .fa-chevron-up::before {
 	position: absolute;
 	right: 4%;
 	top: 6%;
+}
+.fa-clock {
+	width: 20px;
+	height: 20px;
 }
 
 .elementTag {
@@ -408,3 +419,32 @@ li.list-item {
 .tag-appliances {
 	background-color: var(--orange);
 }
+
+
+/*****   RESPONSIVE   *****/
+
+@media screen and (min-width: 1024px) and (max-width: 1199.99px) {
+	main {
+		padding: 1rem 0%;
+	}
+	.card-figure {
+		width: 18.5rem;
+		height: 19.5rem;
+	}
+	.media-recipe {
+		width: 18.5rem;
+		height: 9.3rem;
+	}
+	button {
+		height: 3rem;
+	}
+	.card-title {
+		font-size: 1rem;
+	}
+	.listTags {
+		font-size: 1rem;
+	}
+}
+
+
+

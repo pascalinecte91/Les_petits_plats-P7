@@ -1,14 +1,10 @@
-
 import { replaceSpecialChars } from './../service/utils.js';
-
 /**
- *?  recipeData = toutes  les recipes = 
- *?  console.log(recipeData.ustensils) = tous les ustensils des recettes
+ *!  recipeData = toutes  les recipes 
+ *!  console.log(recipeData.ustensils) = tous les ustensils des recettes
  */
-
 class RecipeDto {
 	constructor(recipeData) {
-		
 		this.recipeData = recipeData;
 		this.name = recipeData.name;
 		this.servings = recipeData.servings;
@@ -17,44 +13,46 @@ class RecipeDto {
 		this.ustensils = new Set();
 		this.appliances = new Set();
 		this.ingredients = new Set();
-		this.ingredientsData = new Set();  // collection
+		this.ingredientsData = new Set(); // collection
 
-		recipeData.ingredients.map((data) => { // collection d'ingredients
+		recipeData.ingredients.map((data) => {
+			//* collection d'ingredients
 			this.ingredientsData.add(data);
 			this.ingredients.add(data.ingredient);
+			console.log(this.ingredientsData);
 		});
-		
+
 		recipeData.ustensils.map((ustensil) => {
 			this.ustensils.add(ustensil);
 		});
-		// les appliances = string
+		//* les appliances = string
 		this.appliances.add(recipeData.appliance);
-	
 	}
 
 	isValidSearchInput(inputValue) {
 		let value = inputValue.toLowerCase();
 		let valueEscape = replaceSpecialChars(value);
-		//console.log(valueEscape);
 		// si , filtre dans le [des ingred]
 		let searchFilter = [...this.ingredients].filter((ingredient) => {
-			return (replaceSpecialChars(ingredient.toLowerCase())).includes(value);
+			return replaceSpecialChars(ingredient.toLowerCase()).includes(value);
+			
 		});
-		let existInIngredients = searchFilter.length > 0;
+		let ingredientsExist = searchFilter.length > 0;
 
-		return existInIngredients ||
-		replaceSpecialChars(this.name.toLowerCase()).includes(valueEscape) ||
-		replaceSpecialChars(this.description.toLowerCase()).includes(valueEscape);
-		}
+
+		return (ingredientsExist ||
+			replaceSpecialChars(this.name.toLowerCase()).includes(valueEscape) ||
+			replaceSpecialChars(this.description.toLowerCase()).includes(valueEscape)
+		);
+	}
 
 	convertObjectToArrayInLowerCase(objectSet) {
 		let arrayElement = Array.from(objectSet).map((element) => {
-			return element.toLowerCase();
+			return replaceSpecialChars(element.toLowerCase());
 		});
 		return arrayElement;
 	}
-	
-	
+
 	isInRecipe(selectedTags, recipeElements) {
 		let selectedTagsArray = this.convertObjectToArrayInLowerCase(selectedTags);
 		let recipeElementsArray = this.convertObjectToArrayInLowerCase(recipeElements);
@@ -75,6 +73,5 @@ class RecipeDto {
 	hasAppliances(selectedTags) {
 		return this.isInRecipe(selectedTags, this.appliances);
 	}
-
 }
 export default RecipeDto;
