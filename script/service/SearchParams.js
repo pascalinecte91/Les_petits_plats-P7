@@ -5,7 +5,6 @@ class SearchParams {
 		this.appliances = new Set();
 		this.input = document.getElementById('inputSearch').value;
 
-		//console.log(this);
 		Array.from(document.querySelectorAll('#tagList .tag-ingredients')).map(
 			(tagElement) => {
 				this.ingredients.add(tagElement.innerText.trim());
@@ -25,7 +24,7 @@ class SearchParams {
 	}
 
 	isValid() {
-		//console.log('nombre = d elements dans l\'objet SET:',this.ingredients.size);
+		//*console.log('nombre = d\'elements dans l\'objet SET:',this.ingredients.size);
 		return (
 			this.ingredients.size > 0 ||
 			this.ustensils.size > 0 ||

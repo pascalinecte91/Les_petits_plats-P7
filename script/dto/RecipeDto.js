@@ -18,8 +18,7 @@ class RecipeDto {
 		recipeData.ingredients.map((data) => {
 			//* collection d'ingredients
 			this.ingredientsData.add(data);
-			this.ingredients.add(data.ingredient);
-			console.log(this.ingredientsData);
+			this.ingredients.add(data.ingredient);	
 		});
 
 		recipeData.ustensils.map((ustensil) => {
@@ -33,14 +32,13 @@ class RecipeDto {
 		let value = inputValue.toLowerCase();
 		let valueEscape = replaceSpecialChars(value);
 		// si , filtre dans le [des ingred]
+
+		//!  EXPLICATION  MENTOR */
 		let searchFilter = [...this.ingredients].filter((ingredient) => {
 			return replaceSpecialChars(ingredient.toLowerCase()).includes(value);
-			
 		});
-		let ingredientsExist = searchFilter.length > 0;
-
-
-		return (ingredientsExist ||
+		let isIngredExist = searchFilter.length > 0;
+		return (isIngredExist ||
 			replaceSpecialChars(this.name.toLowerCase()).includes(valueEscape) ||
 			replaceSpecialChars(this.description.toLowerCase()).includes(valueEscape)
 		);
@@ -48,6 +46,7 @@ class RecipeDto {
 
 	convertObjectToArrayInLowerCase(objectSet) {
 		let arrayElement = Array.from(objectSet).map((element) => {
+			//console.log('TOUT =',element);
 			return replaceSpecialChars(element.toLowerCase());
 		});
 		return arrayElement;

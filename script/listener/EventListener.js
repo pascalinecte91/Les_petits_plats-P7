@@ -4,6 +4,7 @@ import ListBuilder from '../builder/ListBuilder.js';
 import RecipeDto from '../dto/RecipeDto.js';
 import AlertMessage from './../builder/AlertMessage.js';
 import SearchService from './../service/SearchService.js';
+import { replaceSpecialChars } from './../service/utils.js';
 
 /**
  *? Ecoute chaque évenement
@@ -31,7 +32,6 @@ class EventListener {
 		document.querySelector('#inputSearch').addEventListener('keyup', (e) => {
 			let searchInput = e.target;
 			let searchValue = searchInput.value;
-			//let tagsParams = searchParams.value;
 
 			this.searchService.launch();
 			if (searchValue.length >= 3) {
@@ -54,7 +54,6 @@ class EventListener {
 	toggleList() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
 			const target = e.target;
-			//console.log(target);
 			// si on clique sur un des 3 boutons
 			if (target.classList.contains('toggleList')) {
 				let isActive = target
@@ -68,7 +67,6 @@ class EventListener {
 					}
 				});
 				// ouvre ou ferme la liste concernée
-				// on depose la classe sur la div parente toggleList
 				target.closest('.elementsList').classList.toggle('active');
 			}
 		});
@@ -76,49 +74,45 @@ class EventListener {
 
 	//* recherche dans les listes
 	filterTag() {
-		// On ecoute sur la saisi au clavier
 		document.querySelector('#searchBtn').onkeyup = (e) => {
 			//ce qu'on inscrit dans l input
 			let inputHtml = e.target;
-			// si ce qu'on ecoute est contenu dans la class
+			
 			if (inputHtml.classList.contains('filterInputList')) {
 				// on recupere  les valeurs inscrites dans l input
 				let inputValue = inputHtml.value;
+		
+				console.log(inputValue);
 				// on affiche et on check les elements deja trouvé dans la liste et
-				document
-					.querySelectorAll('.elementsList.active .list-item')
-					.forEach((element) => {
-						//console.log(element);
-						const elementValueList = element.innerHTML;
-						//console.log(elementValueList);
-						// si il existe , indexOf  renverra à l element trouvé (sa valeur)
-						let isNotEmpty = elementValueList.indexOf(inputValue) >= 0; // si yen a pas zero
-						if (isNotEmpty) {
-							// si elementValueList n'est pas vide :  effacer la classe HIDE
-							element.classList.remove('hidden');
-						} else {
-							//sinon  on l'a remet
-							element.classList.add('hidden');
-						}
-					});
-			}
+				document.querySelectorAll('.elementsList.active .list-item').forEach((element) => {
+					const elementValueList = replaceSpecialChars(element.innerHTML);
+					//* console.log('elements du toggle :', elementValueList);
+					//* indexOf  renverra sa valeur
+					let isNotEmpty = elementValueList.indexOf(inputValue) >= 0; 
+					
+					if (isNotEmpty) {
+						element.classList.remove('hidden');
+					} else {
+						element.classList.add('hidden');
+					}
+				});
+		}
 		};
 	}
 	//* affichage tags
 	addTag() {
 		document.querySelector('#searchBtn').addEventListener('click', (e) => {
 			const target = e.target;
-			//console.log(target); // li
+			//*console.log('recettes trouvées avec TAG choisi:',target); 
 			if (target.classList.contains('list-item')) {
 				const elementValue = target.innerHTML;
-				//console.log(elementValue);
 				let dataType = target.closest('.elementsList').dataset.type;
-				//console.log('elementsList');
 				let tagHtmlList = `
 				<li class="elementTag tag-${dataType}">${elementValue} 
 				<i class="far fa-times-circle tag"></i></li>`;
 				document.getElementById('tagList').innerHTML += tagHtmlList;
 				this.searchService.launch();
+				
 				if (elementValue.length > 0) {
 					document.getElementById('resultSort').classList.add('showInput');
 				} else {

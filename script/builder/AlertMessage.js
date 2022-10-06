@@ -2,7 +2,7 @@ class AlertMessage {
 	refresh(searchResult) {
 		let alertMessage = document.getElementById('resultSort');
 		let qteRecipe =[...searchResult.recipes].length; 
-		console.log(searchResult.recipes);
+		//console.log(searchResult.recipes);
 		if (qteRecipe < 1) {
 			alertMessage.innerHTML =
 				'Aucune "recette" ne correspond, veuillez recommencer !<i class="far fa-times-circle tagMsg"></i>';
