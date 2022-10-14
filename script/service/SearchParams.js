@@ -30,9 +30,9 @@ class SearchParams {
 			this.ustensils.size > 0 ||
 			this.appliances.size > 0 ||
 			this.input.trim() != ''
-		);
-		
-	}
+			);
+			
+		}
 }
 
 export default SearchParams;

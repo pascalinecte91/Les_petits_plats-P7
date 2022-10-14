@@ -15,12 +15,9 @@ class SearchResult {
 		Array.from(recipesRecovered).map((recipe) => {
 			
 			Array.from(recipe.ingredients).map((ingredient) => {
-				//console.log(recipe.ingredients);   			
-				//!FLO  PK 5 TABLEAUX DE CHAQUE INGREDIENTS *5 COMME NBRE ING
 				this.ingredients.add(ingredient.toLowerCase());
 				//*console.log('liste  = ',ingredient);
 			});													
-			//! FLO PK  L APPELER RESULT ET PK AVOIR FAIT CETTE ETAPE COMME CA
 			Array.from(recipe.ustensils).map((ustensil) => {
 				this.ustensils.add(ustensil.toLowerCase());
 				//console.log(this.ustensils);

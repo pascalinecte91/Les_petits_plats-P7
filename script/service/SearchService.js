@@ -22,13 +22,14 @@ class SearchService {
 			this.searchParams.input = '';
 		}
 		if (this.searchParams.isValid()) {
+			//*.map permet de creer un nouveau array (de l'existant) qui
+			//* va appliquer sur CHACUN  de l'argument la fonction
 			Array.from(this.recipes).map((recipe) => {
 				let isRecovered =
 					recipe.isValidSearchInput(this.searchParams.input) &&
 					recipe.hasIngredients(this.searchParams.ingredients) &&
 					recipe.hasUstensils(this.searchParams.ustensils) &&
 					recipe.hasAppliances(this.searchParams.appliances);
-
 				if (isRecovered) {
 					this.recipesRecovered.add(recipe);
 				}
@@ -41,6 +42,12 @@ class SearchService {
 		this.cardRecipeBuilder.refreshCardSection(this.recipesRecovered);
 		this.listBuilder.refreshListSection(this.searchResult, this.searchParams);
 		this.alertMessage.refresh(this.searchResult);
+		if (this.recipesRecovered.size < this.recipes.size) {
+			document.getElementById('resultSort').classList.add('showInput');
+		} else {
+			document.getElementById('resultSort').classList.remove('showInput');
+		}
 	}
+	
 }
 export default SearchService;

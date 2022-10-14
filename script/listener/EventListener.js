@@ -34,11 +34,7 @@ class EventListener {
 			let searchValue = searchInput.value;
 
 			this.searchService.launch();
-			if (searchValue.length >= 3) {
-				document.getElementById('resultSort').classList.add('showInput');
-			} else {
-				document.getElementById('resultSort').classList.remove('showInput');
-			}
+			
 		});
 	}
 
@@ -46,7 +42,7 @@ class EventListener {
 		const closedPopup = document.querySelector('#resultSort');
 		closedPopup.addEventListener('click', () => {
 			document.getElementById('resultSort').classList.remove('showInput');
-			location.reload();
+			//location.reload();
 		});
 	}
 
@@ -89,7 +85,6 @@ class EventListener {
 					//* console.log('elements du toggle :', elementValueList);
 					//* indexOf  renverra sa valeur
 					let isNotEmpty = elementValueList.indexOf(inputValue) >= 0; 
-					
 					if (isNotEmpty) {
 						element.classList.remove('hidden');
 					} else {
@@ -112,12 +107,6 @@ class EventListener {
 				<i class="far fa-times-circle tag"></i></li>`;
 				document.getElementById('tagList').innerHTML += tagHtmlList;
 				this.searchService.launch();
-				
-				if (elementValue.length > 0) {
-					document.getElementById('resultSort').classList.add('showInput');
-				} else {
-					document.getElementById('resultSort').classList.remove('showInput');
-				}
 			}
 		});
 	}
@@ -130,7 +119,6 @@ class EventListener {
 				target.closest('.elementTag').remove();
 				this.searchService.launch();
 			}
-			document.getElementById('resultSort').classList.remove('showInput');
 		});
 	}
 }

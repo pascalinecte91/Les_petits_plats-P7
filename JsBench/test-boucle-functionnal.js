@@ -1775,25 +1775,84 @@ const recipes = [
 ];
 
 /*****************************
- * ?  Bench  n° 2 Functional
+ * ?  Bench  n°  Functional
  *
  *****************************/
 
-let filteredRecipes = new Set(recipes);
-
-const searchGlobal = ['limonade', 'sucre', 'blender'];
-searchGlobal.forEach((search) => {
-	let searchHasRecipes = new Set();
-
-	searchHasRecipes = recipes.map((recipe) => {
-		if (
-			recipe.name.toLowerCase().includes(search) ||
-			recipe.description.toLowerCase().includes(search) ||
-			recipe.ingredients.find((ing) =>
-				ing.ingredient.toLowerCase().includes(search)
-			)
-		) {
-			filteredRecipes.add(recipe);
+class SearchService {
+	constructor(recipes) {
+		this.recipes = recipes;
+		this.cardRecipeBuilder = new CardRecipeBuilder();
+		this.listBuilder = new ListBuilder();
+		this.alertMessage = new AlertMessage();
+	}
+	
+	launch() {
+		this.recipesRecovered = new Set();
+		this.searchParams = new SearchParams();
+		// debut de recherche
+		if (this.searchParams.input.length < 3) {
+			this.searchParams.input = '';
 		}
-	});
-});
+		for if(i = 0, recipes, i++) => {
+			recipes[i];
+			if(hasAllValidated())
+					recipe.isValidSearchInput(this.searchParams.input) &&
+					recipe.hasIngredients(this.searchParams.ingredients) &&
+					recipe.hasUstensils(this.searchParams.ustensils) &&
+					recipe.hasAppliances(this.searchParams.appliances);
+
+				if (isRecovered) {
+					this.recipesRecovered.add(recipe);
+				}
+			};
+		} else {
+			this.recipesRecovered = this.recipes;
+		}
+
+		class SearchResult {
+	constructor(recipesRecovered) {
+		this.recipes = recipesRecovered;
+		this.ingredients = new Set();
+		this.ustensils = new Set();
+		this.appliances = new Set();
+		
+		Array.from(recipesRecovered).map((recipe) => {
+			
+			Array.from(recipe.ingredients).map((ingredient) => {
+				this.ingredients.add(ingredient.toLowerCase());
+				//*console.log('liste  = ',ingredient);
+			});													
+			Array.from(recipe.ustensils).map((ustensil) => {
+				this.ustensils.add(ustensil.toLowerCase());
+				//console.log(this.ustensils);
+			});
+			Array.from(recipe.appliances).map((appliance) => {
+				this.appliances.add(appliance.toLowerCase());
+			});
+		});
+	}
+}
+	class SearchParams {
+	constructor() {
+		this.ingredients = new Set(['creme fraiche','fraise','citron']);
+		this.ustensils = new Set(['cuillere à soupe', 'couteau']);
+		this.appliances = new Set(['casserole', 'bol']);
+		this.input = 'lait de coco';
+
+	}
+
+	isValid() {
+		//*console.log('nombre = d\'elements dans l\'objet SET:',this.ingredients.size);
+		return (
+			this.ingredients.size > 0 ||
+			this.ustensils.size > 0 ||
+			this.appliances.size > 0 ||
+			this.input.trim() != ''
+		);	
+	}
+	}
+}
+const recipeDataProvider = new RecipeDataProvider();
+const searchService = new SearchService(recipeDataProvider.recipes);
+const eventListener = new EventListener(searchService);
