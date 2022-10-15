@@ -1,16 +1,16 @@
 class CardRecipeBuilder {
-	refreshCardSection(recipes) {
-		let cardsHtml = '';
-		Array.from(recipes).map((recipe) => {
-			cardsHtml += this.getHtmlCard(recipe);
-		});
-		document.getElementById('recipesContainer').innerHTML = cardsHtml;
-	}
+  refreshCardSection(recipes) {
+    let cardsHtml = "";
+    Array.from(recipes).map((recipe) => {
+      cardsHtml += this.getHtmlCard(recipe);
+    });
+    document.getElementById("recipesContainer").innerHTML = cardsHtml;
+  }
 
-	getHtmlCard(recipe) {
-		let picture = '';
-		picture = recipe.name.toLowerCase().replace(/ /g, '_');
-		const html = `
+  getHtmlCard(recipe) {
+    let picture = "";
+    picture = recipe.name.toLowerCase().replace(/ /g, "_");
+    const html = `
 	<figure class="card-figure">
 			<img src="./assets/images/${picture}.jpg" alt="gallery" class="media-recipe">
 				<div class="card-info">
@@ -27,21 +27,21 @@ class CardRecipeBuilder {
 					</div>
 				</figcaption>
 	</figure>`;
-		return html;
-	}
+    return html;
+  }
 
-	ingredientHtml(recipe) {
-		let htmlContent = '';
-		// console.log(recipe.ingredients);
-		for (const ingredient of recipe.ingredientsData) {
-			const ingredientQuantity = ingredient.quantity
-				? ingredient.unit
-					? `:&nbsp;${ingredient.quantity}&nbsp;${ingredient.unit}`
-					: `:&nbsp;${ingredient.quantity}`
-				: '';
-			htmlContent += `<p><strong>${ingredient.ingredient}</strong>${ingredientQuantity}</p>`;
-		}
-		return htmlContent;
-	}
+  ingredientHtml(recipe) {
+    let htmlContent = "";
+    // console.log(recipe.ingredients);
+    for (const ingredient of recipe.ingredientsData) {
+      const ingredientQuantity = ingredient.quantity
+        ? ingredient.unit
+          ? `:&nbsp;${ingredient.quantity}&nbsp;${ingredient.unit}`
+          : `:&nbsp;${ingredient.quantity}`
+        : "";
+      htmlContent += `<p><strong>${ingredient.ingredient}</strong>${ingredientQuantity}</p>`;
+    }
+    return htmlContent;
+  }
 }
 export default CardRecipeBuilder;

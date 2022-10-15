@@ -5,7 +5,7 @@ class AlertMessage {
 		
 		if (qteRecipe < 1) {
 			console.log('if');
-			alertMessage.innerHTML =
+				alertMessage.innerHTML =
 				'Aucune "recette" ne correspond, veuillez recommencer !<i class="far fa-times-circle tagMsg"></i>';
 			
 		} else {
