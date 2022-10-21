@@ -4,7 +4,6 @@ class AlertMessage {
 		let qteRecipe =[...searchResult.recipes].length; 
 		
 		if (qteRecipe < 1) {
-			console.log('if');
 				alertMessage.innerHTML =
 				'Aucune "recette" ne correspond, veuillez recommencer !<i class="far fa-times-circle tagMsg"></i>';
 			

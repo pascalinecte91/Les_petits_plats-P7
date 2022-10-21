@@ -12,11 +12,13 @@
 
 button {
 	height: 3rem;
+	min-width: inherit;
 }
 
 #searchBtn {
 	gap: inherit;
 }
+
 #inputSearch {
 	width: 80%;
 }
@@ -26,10 +28,12 @@ button {
 	height: 150px;
 	border-radius: 5px 5px 0px 0px;
 }
+
 .card-info {
 	font-size: inherit;
 	margin-top: 0.5rem;
 }
+
 .card-title {
 	font-size: 0.9rem;
 	-webkit-line-clamp: 2;
@@ -37,7 +41,12 @@ button {
 }
 
 .listTags {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1.8rem;
-    font-size: 1rem;
+	grid-template-columns: 1fr;
+	grid-auto-rows: 1.8rem;
+	font-size: 1rem;
+}
+
+.fa,
+.fas {
+	padding-left: 8px;
 }
