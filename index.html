@@ -29,11 +29,11 @@
 		<img src="assets/logo.jpg" alt="logo" />
 	</section>
 	<main>
-	<!--          ALERTE MESSAGE   RECHERCHES    -->
-	<section id="resultSort" class="alertMessage closed">
-		<div id="sortMsg" class="msg" ></div>
-		<i class="far fa-times-circle tag"></i>
-	</section> 
+		<!--          ALERTE MESSAGE   RECHERCHES    -->
+		<section id="resultSort" class="alertMessage closed">
+			<div id="sortMsg" class="msg"></div>
+			<i class="far fa-times-circle tag"></i>
+		</section>
 
 
 		<!--    SEARCH   INPUT RECIPES   -->
@@ -41,22 +41,23 @@
 			<div class="loupe">
 				<input type="text" id="inputSearch" class="loupe" placeholder="Rechercher une recette" />
 				<div class="icon">
-				<img src="assets/loupe.png" class="glass" alt="loupe" />
-			</div></div>
-		</section>
-		
-		<!--   BADGES DES RECHERCHES CIBLEES-->
-		
-			<div class ="tagContent" id="tagList">
-				<div id="tagListWrapper"></div>
+					<img src="assets/loupe.png" class="glass" alt="loupe" />
+				</div>
 			</div>
-	
+		</section>
+
+		<!--   BADGES DES RECHERCHES CIBLEES-->
+
+		<div class="tagContent" id="tagList">
+			<div id="tagListWrapper"></div>
+		</div>
+
 
 		<!--    NAVIGATION  - SORT - BUTTON   -->
 
 		<section id="searchBtn">
 			<div id="ingredientsList" class="elementsList blue" data-type="ingredients"></div>
-			<div id="ustensilsList" class="elementsList green" data-type="ustensils" ></div>
+			<div id="ustensilsList" class="elementsList green" data-type="ustensils"></div>
 			<div id="appliancesList" class="elementsList orange" data-type="appliances"></div>
 		</section>
 
@@ -68,7 +69,7 @@
 		<script type="module" src="./script/builder/ListBuilder.js"></script>
 		<script type="module" src="./script/builder/AlertMessage.js"></script>
 		<script type="module" src="./script/listener/EventListener.js"></script>
-		
+
 
 	</main>
 </body>
