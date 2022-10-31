@@ -24,7 +24,7 @@ class SearchService {
             // array.from [ des recipes] collection  chaque recipe
         }
         if (this.searchParams.isValid()) {
-            Array.from(this.recipes).forEach((recipe) => {
+            this.recipes.forEach((recipe) => {
                 let isRecovered =
                     recipe.isValidSearchInput(this.searchParams.input) &&
                     recipe.hasIngredients(this.searchParams.ingredients) &&

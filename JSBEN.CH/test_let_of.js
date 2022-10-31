@@ -10,7 +10,7 @@ class SearchService {
         //! instancie  un objet searchParams
         this.searchParams = new SearchParams();
 
-        for (let recipe of [...this.recipes]) {
+        for (let recipe of this.recipes) {
             if (
                 recipe.isValidSearchInput(this.searchParams.input) &&
                 recipe.hasIngredients(this.searchParams.ingredients) &&
