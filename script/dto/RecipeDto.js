@@ -1,6 +1,6 @@
 import { replaceSpecialChars } from './../service/utils.js';
 /**
- *!  recipeData = toutes  les recipes 
+ *!  recipeData = toutes  les recipes (objets)
  *!  console.log(recipeData.ustensils) = tous les ustensils des recettes
  */
 class RecipeDto {
@@ -16,6 +16,7 @@ class RecipeDto {
 		this.ingredientsData = new Set(); // collection
 
 		recipeData.ingredients.map((data) => {
+			
 			//* collection d'ingredients
 			this.ingredientsData.add(data);
 			this.ingredients.add(data.ingredient);	
@@ -33,7 +34,6 @@ class RecipeDto {
 		let valueEscape = replaceSpecialChars(value);
 		// si , filtre dans le [des ingred]
 
-		//!  EXPLICATION  MENTOR */
 		let searchFilter = [...this.ingredients].filter((ingredient) => {
 			return replaceSpecialChars(ingredient.toLowerCase()).includes(value);
 		});

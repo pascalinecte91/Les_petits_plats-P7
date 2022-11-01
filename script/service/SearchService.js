@@ -20,17 +20,18 @@ class SearchService {
         // debut de recherche
         if (this.searchParams.input.length < 3) {
             this.searchParams.input = "";
-            // si les parametres ( caracteres dans l input OK)
-            // array.from [ des recipes] collection  chaque recipe
+            //  caracteres dans l input )
         }
         if (this.searchParams.isValid()) {
             this.recipes.forEach((recipe) => {
+                // conditions de type function qui return true / false
                 let isRecovered =
                     recipe.isValidSearchInput(this.searchParams.input) &&
                     recipe.hasIngredients(this.searchParams.ingredients) &&
                     recipe.hasUstensils(this.searchParams.ustensils) &&
                     recipe.hasAppliances(this.searchParams.appliances);
                 if (isRecovered) {
+                // si true = ajoute 
                     this.recipesRecovered.add(recipe);
                 }
             });

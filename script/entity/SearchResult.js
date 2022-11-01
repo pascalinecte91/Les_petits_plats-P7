@@ -13,9 +13,11 @@ class SearchResult {
     this.appliances = new Set();
 
     Array.from(recipesRecovered).map((recipe) => {
+      //recipesRecovered = mes objets Set 50
       Array.from(recipe.ingredients).map((ingredient) => {
+       // recipe.ingredients = [ ingredients de chaque objet SET]
         this.ingredients.add(ingredient.toLowerCase());
-        //*console.log('liste  = ',ingredient);
+        //console.log('liste  = ',ingredient);
       });
       Array.from(recipe.ustensils).map((ustensil) => {
         this.ustensils.add(ustensil.toLowerCase());

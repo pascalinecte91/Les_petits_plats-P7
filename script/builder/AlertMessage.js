@@ -5,10 +5,8 @@ class AlertMessage {
 		
 		if (qteRecipe < 1) {
 				alertMessage.innerHTML =
-				'Aucune "recette" ne correspond, veuillez recommencer !<i class="far fa-times-circle tagMsg"></i>';
-			
+				'Aucune "recette" ne correspond, veuillez recommencer !<i class="far fa-times-circle tagMsg"></i>';	
 		} else {
-			
 			alertMessage.innerHTML = `Nous avons trouvé ${qteRecipe}  recette${
 				qteRecipe > 1 ? 's' : ''
 			} qui correspond${

@@ -32,9 +32,7 @@ class EventListener {
 		document.querySelector('#inputSearch').addEventListener('keyup', (e) => {
 			let searchInput = e.target;
 			let searchValue = searchInput.value;
-
 			this.searchService.launch();
-			
 		});
 	}
 
