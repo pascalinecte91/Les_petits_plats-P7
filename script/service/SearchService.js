@@ -21,35 +21,23 @@ class SearchService {
         }
 
         //! size  sur un objet SET
+        // on initialise i avec valeur 0
+        // on verifie que la valeur est inf à  valeur de i
+        // à chaque passage on ajoute 1 à la valeur précedente
+        for (let i = 0; i < this.recipes.size; i++) {
+            let recipe = [...this.recipes][i];
 
-        let recipes = this.recipes.entries();
-
-        for (let recipe of recipes) {
             let isRecovered =
-                recipe[0].isValidSearchInput(this.searchParams.input) &&
-                recipe[0].hasIngredients(this.searchParams.ingredients) &&
-                recipe[0].hasUstensils(this.searchParams.ustensils) &&
-                recipe[0].hasAppliances(this.searchParams.appliances);
-            console.log(isRecovered);
+            // 4 conditons de type fonction
+                recipe.isValidSearchInput(this.searchParams.input) &&
+                recipe.hasIngredients(this.searchParams.ingredients) &&
+                recipe.hasUstensils(this.searchParams.ustensils) &&
+                recipe.hasAppliances(this.searchParams.appliances);
+            // si c'est true = ajoute
             if (isRecovered) {
-                this.recipesRecovered.add(recipe[0]);
+                this.recipesRecovered.add(recipe);
             }
         }
-
-        /*  for (let i = 0; i < this.recipes.size ; i++) {
-			let recipe = [...this.recipes][i];
-              
-            let isRecovered =
-            recipe.isValidSearchInput(this.searchParams.input) &&
-            recipe.hasIngredients(this.searchParams.ingredients) &&
-            recipe.hasUstensils(this.searchParams.ustensils) &&
-            recipe.hasAppliances(this.searchParams.appliances);
-
-            if (isRecovered) {
-                this.recipesRecovered.add(recipe)
-            }
-       
-		} */
 
         // fin de recherche
         this.searchResult = new SearchResult(this.recipesRecovered);
