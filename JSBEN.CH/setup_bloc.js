@@ -1,8 +1,10 @@
-/**
- * CODE  COMMUN
+/********  SECTION **************
+ * CODE  COMMUN   la configuration
  * sera exécuté pour les 2 tests 1 fois 
+ //* a besoin d'un objet à parcourir
+ *
+ //*  on charge le RecipeDto
  */
-
 
 const recipes = [
     {
@@ -1782,9 +1784,11 @@ const recipes = [
     },
 ];
 
-/*********************************
+/**************  SECTION  ******************
  *********************************/
-
+/**
+ * On charge le RecipeDto
+ */
 class RecipeDto {
     constructor(recipeData) {
         this.recipeData = recipeData;
@@ -1864,8 +1868,8 @@ class RecipeDto {
     }
 }
 
-/******************************
- ******************************/
+/************** SECTION ****************
+ ***************************************/
 function replaceSpecialChars(str) {
     return str
         .replace(/[.,;:!?*"()°]/g, "")
@@ -1879,9 +1883,12 @@ function replaceSpecialChars(str) {
         .replace(/[ùûû]/g, "u");
 }
 
-/*************************************
+/************** SECTION *****************
  ***********************************/
-
+/**
+ * le dataProvider va   charger le [] dans les objets DTO
+ * Va charger  mes datas et creer des recipeDto
+ */
 class RecipeDataProvider {
     constructor() {
         this.recipes = new Set();

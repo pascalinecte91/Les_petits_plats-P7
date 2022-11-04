@@ -1,14 +1,24 @@
+
+/** le Setup , 
+ *  le Boilerplate
+ *  instancier SearchService
+ */
+
+//* besoin d'un objet Recipes
+//* et de la methode launch() qui va :
+
 class SearchService {
     constructor(recipes) {
         this.recipes = recipes;
     }
 
     launch() {
-        this.recipesRecovered = new Set(); 
-        //! VA INITIALISER UN [] QUI CONTIENDRA LES RESULTATS DE LA RECHERCHE
+        this.recipesRecovered = new Set();
+        //* va intialiser un []  vide qui contiendra  les resultats de la recherche
         this.searchParams = new SearchParams(); 
-        //! ELLE INSTANCIE UN OBJET SEARCHPARAM
+        //* instancie un objet SearchParam
 
+        //* les conditions de type function:
         if (this.searchParams.isValid()) {
             this.recipes.forEach((recipe) => {
                 let isRecovered =
@@ -25,13 +35,13 @@ class SearchService {
         }
     }
 }
-/********************************************
+/****************** SECTION *****************
  ********************************************/
-//! INSTANCIATION DU PROVIDER
+//! l'instanciation du RecipeDataProvider
 const recipeDataProvider = new RecipeDataProvider(); 
 
-//! L APPEL DE LA CLASSE SEARCHSERVICE
+//! l'appel de la classe SearchService
 const searchService = new SearchService(recipeDataProvider.recipes); 
 
-//!L APPEL DE LA METHODE LAUNCH()
+//!l'appel de la méthode launch()
 searchService.launch(); 

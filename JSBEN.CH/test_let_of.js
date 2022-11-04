@@ -4,8 +4,8 @@ class SearchService {
     }
 
     launch() {
-        //! va initialiser un array vide
-        //! qui apres, contiendra le resultat de la recherche
+        //! va initialiser un [] vide
+        //! qui contiendra le resultat de la recherche
         this.recipesRecovered = new Set();
         //! instancie  un objet searchParams
         this.searchParams = new SearchParams();
@@ -22,13 +22,13 @@ class SearchService {
         }
     }
 }
-/****************************************
+/**************** SECTION ***************
  ****************************************/
-//! INSTANCIATION DU PROVIDER
+//! l'instanciation du RecipeDataProvider
 const recipeDataProvider = new RecipeDataProvider(); 
 
-//! L APPEL DE LA CLASSE SEARCHSERVICE
+//! l'appel de la classe SearchService
 const searchService = new SearchService(recipeDataProvider.recipes); 
 
-//!L APPEL DE LA METHODE LAUNCH()
+//!l'appel de la méthode launch()
 searchService.launch(); 
